@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "title": "PixelCraft Network - Minecraft 小遊戲伺服器",
+    "description": "加入 PixelCraft Network，體驗最棒的 Minecraft 小遊戲！起床戰爭、空島戰爭、決鬥等著你！",
+    "color": "#00AA00",
+    "image": "/images/og-image.png"
+  },
+  "nav": {
+    "home": "首頁",
+    "shop": "商店",
+    "rules": "規則",
+    "about": "關於",
+    "language": "語言",
+    "discord": "Discord"
+  },
+  "home": {
+    "subtitle": "歡迎來到",
+    "title": "PixelCraft Network",
+    "description": "最棒的 Minecraft 小遊戲伺服器體驗。加入數千名玩家一起戰鬥！",
+    "serverStatus": {
+      "online": "在線",
+      "offline": "離線",
+      "players": "玩家",
+      "copyIp": "複製 IP",
+      "copied": "已複製！"
+    },
+    "cta": "瞭解更多",
+    "gamemodes": {
+      "title": "遊戲模式",
+      "comingSoon": "即將推出",
+      "modeLabel": "模式",
+      "statusLabel": "狀態",
+      "focusLabel": "重點",
+      "focusValue": "PvP 小遊戲"
+    },
+    "partners": {
+      "title": "合作夥伴"
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "商店 - PixelCraft Network",
+      "description": "透過購買 rank、外觀等來支持 PixelCraft Network！"
+    },
+    "title": "伺服器商店",
+    "description": "支持我們並獲得超棒的特權！",
+    "currency": "貨幣",
+    "cart": "購物車",
+    "emptyCart": "購物車是空的",
+    "addToCart": "加入購物車",
+    "checkout": "結帳",
+    "total": "總計",
+    "disabled": "商店目前不可用。"
+  },
+  "rules": {
+    "meta": {
+      "title": "規則 - PixelCraft Network",
+      "description": "所有 PixelCraft Network 玩家的規則與指南。"
+    },
+    "title": "伺服器規則",
+    "lastUpdated": "最後更新",
+    "sections": [
+      {
+        "title": "一般規則",
+        "rules": [
+          "尊重所有玩家與工作人員。",
+          "禁止開掛、作弊或使用不公平優勢。",
+          "禁止洗頻或過度使用大寫。",
+          "不要分享他人的個人資訊。"
+        ]
+      },
+      {
+        "title": "聊天規則",
+        "rules": [
+          "禁止攻擊性語言、種族歧視或騷擾。",
+          "公共聊天室請使用英文。",
+          "禁止宣傳其他伺服器。",
+          "禁止冒充工作人員。"
+        ]
+      },
+      {
+        "title": "遊戲規則",
+        "rules": [
+          "禁止利用漏洞或故障。",
+          "禁止在團隊模式中惡意破壞隊友。",
+          "不要濫用地圖漏洞。",
+          "發現漏洞請回報，不要利用。"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "meta": {
+      "title": "關於 - PixelCraft Network",
+      "description": "了解更多關於 PixelCraft Network、我們的團隊與歷程。"
+    },
+    "title": "關於我們",
+    "description": "PixelCraft Network 的成立只有一個簡單的目標：為世界各地的玩家創造最棒的 Minecraft 小遊戲體驗。我們的團隊不遺餘力地為你帶來新功能、遊戲模式和活動。",
+    "milestones": {
+      "title": "我們的歷程"
+    },
+    "team": {
+      "title": "我們的團隊",
+      "ranks": {
+        "owner": "擁有者",
+        "founder": "創始人",
+        "developer": "開發者",
+        "admin": "管理員",
+        "builder": "建築師",
+        "mod": "版主",
+        "jrmod": "初級版主",
+        "helper": "助手",
+        "trial": "試用",
+        "lens": "Lens"
+      }
+    }
+  },
+  "footer": {
+    "server": {
+      "title": "伺服器",
+      "description": "最棒的 Minecraft 小遊戲伺服器體驗。"
+    },
+    "moreInfo": {
+      "title": "更多資訊",
+      "links": {
+        "home": "首頁",
+        "about": "關於",
+        "rules": "規則",
+        "shop": "商店"
+      }
+    },
+    "resources": {
+      "title": "資源",
+      "links": {
+        "vote": "投票",
+        "status": "伺服器狀態",
+        "bugs": "漏洞回報"
+      }
+    },
+    "social": {
+      "title": "社群媒體",
+      "links": {
+        "discord": "Discord",
+        "twitter": "Twitter",
+        "youtube": "YouTube",
+        "tiktok": "TikTok"
+      }
+    },
+    "copyright": "© {year} PixelCraft Network. 版權所有。",
+    "disclaimer": "與 Mojang Studios 或 Microsoft 無關。"
+  }
+}

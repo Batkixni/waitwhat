@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "title": "PixelCraft Network - Minecraft Minigame Server",
+    "description": "Join PixelCraft Network for the best Minecraft minigame experience! Bed Wars, Sky Wars, Duels and more!",
+    "color": "#00AA00",
+    "image": "/images/og-image.png"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "rules": "Rules",
+    "about": "About",
+    "language": "Language",
+    "discord": "Discord"
+  },
+  "home": {
+    "subtitle": "Welcome to",
+    "title": "PixelCraft Network",
+    "description": "The ultimate Minecraft minigame server experience. Join thousands of players in epic battles!",
+    "serverStatus": {
+      "online": "Online",
+      "offline": "Offline",
+      "players": "Players",
+      "copyIp": "Copy IP",
+      "copied": "Copied!"
+    },
+    "cta": "Learn More",
+    "gamemodes": {
+      "title": "Game Modes",
+      "comingSoon": "Coming Soon",
+      "modeLabel": "Mode",
+      "statusLabel": "Status",
+      "focusLabel": "Focus",
+      "focusValue": "PvP Minigame"
+    },
+    "partners": {
+      "title": "Our Partners"
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Shop - PixelCraft Network",
+      "description": "Support PixelCraft Network by purchasing ranks, cosmetics, and more!"
+    },
+    "title": "Server Shop",
+    "description": "Support us and get awesome perks!",
+    "currency": "Currency",
+    "cart": "Cart",
+    "emptyCart": "Your cart is empty",
+    "addToCart": "Add to Cart",
+    "checkout": "Checkout",
+    "total": "Total",
+    "disabled": "Shop is currently unavailable."
+  },
+  "rules": {
+    "meta": {
+      "title": "Rules - PixelCraft Network",
+      "description": "Rules and guidelines for all PixelCraft Network players."
+    },
+    "title": "Server Rules",
+    "lastUpdated": "Last Updated",
+    "sections": [
+      {
+        "title": "General Rules",
+        "rules": [
+          "Be respectful to all players and staff members.",
+          "No hacking, cheating, or using unfair advantages.",
+          "No spamming or excessive use of caps lock.",
+          "Do not share personal information of others."
+        ]
+      },
+      {
+        "title": "Chat Rules",
+        "rules": [
+          "No offensive language, racism, or harassment.",
+          "English only in global chat.",
+          "No advertising other servers.",
+          "No impersonating staff members."
+        ]
+      },
+      {
+        "title": "Gameplay Rules",
+        "rules": [
+          "No exploiting bugs or glitches.",
+          "No team griefing in team-based modes.",
+          "Do not abuse map exploits.",
+          "Report bugs instead of abusing them."
+        ]
+      }
+    ]
+  },
+  "about": {
+    "meta": {
+      "title": "About - PixelCraft Network",
+      "description": "Learn more about PixelCraft Network, our team, and our journey."
+    },
+    "title": "About Us",
+    "description": "PixelCraft Network was founded with a simple goal: to create the best Minecraft minigame experience for players around the world. Our dedicated team works tirelessly to bring you new features, game modes, and events.",
+    "milestones": {
+      "title": "Our Journey"
+    },
+    "team": {
+      "title": "Our Team",
+      "ranks": {
+        "owner": "Owner",
+        "founder": "Founder",
+        "developer": "Developer",
+        "admin": "Admin",
+        "builder": "Builder",
+        "mod": "Moderator",
+        "jrmod": "Jr. Moderator",
+        "helper": "Helper",
+        "trial": "Trial",
+        "lens": "Lens"
+      }
+    }
+  },
+  "footer": {
+    "server": {
+      "title": "Server",
+      "description": "The best Minecraft minigame server experience."
+    },
+    "moreInfo": {
+      "title": "More Info",
+      "links": {
+        "home": "Home",
+        "about": "About",
+        "rules": "Rules",
+        "shop": "Shop"
+      }
+    },
+    "resources": {
+      "title": "Resources",
+      "links": {
+        "vote": "Vote",
+        "status": "Server Status",
+        "bugs": "Bug Reports"
+      }
+    },
+    "social": {
+      "title": "Social",
+      "links": {
+        "discord": "Discord",
+        "twitter": "Twitter",
+        "youtube": "YouTube",
+        "tiktok": "TikTok"
+      }
+    },
+    "copyright": "© {year} PixelCraft Network. All rights reserved.",
+    "disclaimer": "Not affiliated with Mojang Studios or Microsoft."
+  }
+}

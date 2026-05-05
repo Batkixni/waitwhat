@@ -1,0 +1,13 @@
+---
+import { renderMinecraftText } from '@utils/mcColor';
+
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className = '' } = Astro.props;
+const html = renderMinecraftText(text);
+---
+
+<span class={`font-pixel ${className}`} set:html={html} />

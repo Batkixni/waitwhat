@@ -1,0 +1,104 @@
+{
+  "server": {
+    "name": "PixelCraft Network",
+    "ip": "play.pixelcraft.net",
+    "port": 25565,
+    "banner": "/images/banner.png",
+    "description": "The ultimate Minecraft minigame experience!",
+    "discordUrl": "https://discord.gg/pixelcraft"
+  },
+  "locale": {
+    "default": "en",
+    "available": ["en", "zh-tw"]
+  },
+  "shop": {
+    "enabled": true,
+    "provider": "tebex",
+    "tebexUrl": "https://pixelcraft.tebex.io",
+    "mcsetsUrl": "",
+    "currency": {
+      "default": "USD",
+      "available": ["USD", "TWD", "EUR"]
+    }
+  },
+  "rules": {
+    "lastUpdated": "2026-05-01"
+  },
+  "team": {
+    "ranks": [
+      { "id": "owner", "priority": 1 },
+      { "id": "founder", "priority": 2 },
+      { "id": "developer", "priority": 3 },
+      { "id": "admin", "priority": 4 },
+      { "id": "builder", "priority": 5 },
+      { "id": "mod", "priority": 6 },
+      { "id": "jrmod", "priority": 7 },
+      { "id": "helper", "priority": 8 },
+      { "id": "trial", "priority": 9 },
+      { "id": "lens", "priority": 10 }
+    ],
+    "members": {
+      "owner": ["Notch", "Jeb_"],
+      "developer": ["Dinnerbone", "Grumm"],
+      "admin": ["Herobrine"],
+      "builder": ["Grian", "MumboJumbo"],
+      "mod": ["Dream", "Technoblade"],
+      "helper": ["Philza"],
+      "founder": ["Steve", "Alex"]
+    }
+  },
+  "gamemodes": [
+    {
+      "id": "bedwars",
+      "name": "Bed Wars",
+      "description": "Protect your bed and destroy others!",
+      "icon": "/images/bedwars.png"
+    },
+    {
+      "id": "skywars",
+      "name": "Sky Wars",
+      "description": "Battle on floating islands!",
+      "icon": "/images/skywars.png"
+    },
+    {
+      "id": "duels",
+      "name": "Duels",
+      "description": "1v1 PvP combat arena!",
+      "icon": "/images/duels.png"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Partner Server 1",
+      "logo": "/images/partner1.png",
+      "url": "https://example.com"
+    },
+    {
+      "name": "Partner Server 2",
+      "logo": "/images/partner2.png",
+      "url": "https://example.com"
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2025-01-15",
+      "title": "Server Launch",
+      "description": "PixelCraft Network officially launched!"
+    },
+    {
+      "date": "2025-03-20",
+      "title": "10,000 Players",
+      "description": "Reached 10,000 unique players!"
+    },
+    {
+      "date": "2025-06-10",
+      "title": "New Game Mode",
+      "description": "Bed Wars released!"
+    },
+    {
+      "date": "2025-12-25",
+      "title": "1 Year Anniversary",
+      "description": "Celebrating our first year!"
+    }
+  ]
+}

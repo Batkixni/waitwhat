@@ -1,0 +1,68 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { loadLocale, detectLocale, t, tArray } from '@utils/i18n';
+import config from '@utils/config';
+
+const { cookies, request } = Astro;
+const locale = detectLocale(cookies, request.headers, Astro.url);
+const localeData = await loadLocale(locale);
+
+const rules = tArray(localeData, 'rules.sections');
+const lastUpdated = config.rules.lastUpdated;
+---
+
+<MainLayout
+  title={t(localeData, 'rules.meta.title')}
+  description={t(localeData, 'rules.meta.description')}
+>
+  <section class="relative z-10 px-5 pt-32 pb-20 min-h-screen">
+    <div class="max-w-3xl mx-auto">
+      
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <p class="font-pixel text-[10px] text-[#F97316]/50 tracking-[0.15em] uppercase mb-3">RULES</p>
+        <h1 class="font-pixel text-2xl sm:text-3xl text-white/90 mb-4">{t(localeData, 'rules.title')}</h1>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+          <svg class="w-3 h-3 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span class="font-pixel text-[10px] text-white/30">{t(localeData, 'rules.lastUpdated')}: {lastUpdated}</span>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="space-y-4">
+        {rules.map((section: any, index: number) => (
+          <div class="card overflow-hidden"
+          >
+            <div class="px-5 py-4 bg-white/[0.015] border-b border-white/[0.04] flex items-center gap-3">
+              <div class="w-7 h-7 rounded-lg bg-[#F97316]/5 border border-[#F97316]/10 flex items-center justify-center">
+                <span class="font-pixel text-[10px] text-[#F97316]/60">{index + 1}</span>
+              </div>
+              <h2 class="font-pixel text-sm text-white/70">{section.title}</h2>
+            </div>
+            <ul class="p-5 space-y-3">
+              {section.rules.map((rule: string, i: number) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-md bg-white/[0.03] flex items-center justify-center mt-0.5">
+                    <span class="font-pixel text-[9px] text-white/20">{i + 1}</span>
+                  </span>
+                  <span class="font-pixel text-[11px] text-white/40 leading-relaxed pt-0.5">{rule}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {rules.length === 0 && (
+        <div class="text-center py-20">
+          <div class="w-14 h-14 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-white/8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <p class="font-pixel text-xs text-white/25">No rules configured.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</MainLayout>

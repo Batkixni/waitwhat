@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Navbar from '@components/Navbar.astro';
+import Footer from '@components/Footer.astro';
+import { BottomBlur } from '@components/ui/edge-blur';
+import { loadLocale, detectLocale } from '@utils/i18n';
+import config from '@utils/config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  color?: string;
+  image?: string;
+}
+
+const { cookies, request } = Astro;
+const locale = detectLocale(cookies, request.headers, Astro.url);
+const localeData = await loadLocale(locale);
+
+const {
+  title = localeData.meta?.title || config.server.name,
+  description = localeData.meta?.description || config.server.description,
+  color = '#F97316',
+  image = localeData.meta?.image || config.server.banner
+} = Astro.props;
+
+const fullTitle = title.includes(config.server.name) ? title : `${title} | ${config.server.name}`;
+const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.origin).toString();
+---
+
+<!DOCTYPE html>
+<html lang={locale} class="bg-black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content={color} />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content={config.server.name} />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://api.mineatar.io" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23F97316' rx='20' width='100' height='100'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='50'>⚔</text></svg>" />
+</head>
+<body class={`bg-black text-white min-h-screen flex flex-col antialiased locale-${locale}`}>
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="fixed inset-0 bg-gradient-radial pointer-events-none z-0"></div>
+  
+  <Navbar locale={locale} localeData={localeData} />
+  
+  <main class="relative z-10 flex-1">
+    <slot />
+  </main>
+  
+  <Footer locale={locale} localeData={localeData} />
+  
+  <BottomBlur client:load height={80} hideOnFooter={true} />
+  
+  <script define:vars={{ locale }}>
+    document.cookie = `lang=${locale};path=/;max-age=31536000;SameSite=Lax`;
+  </script>
+</body>
+</html>

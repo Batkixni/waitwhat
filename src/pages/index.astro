@@ -1,0 +1,104 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import ServerStatus from '@components/ServerStatus.astro';
+import MinecraftText from '@components/MinecraftText.astro';
+import LogoCarousel from '@components/ui/logo-carousel';
+import GameModesExpandable from '@components/ui/game-modes-expandable';
+import { loadLocale, detectLocale, t } from '@utils/i18n';
+import config from '@utils/config';
+
+const { cookies, request } = Astro;
+const locale = detectLocale(cookies, request.headers, Astro.url);
+const localeData = await loadLocale(locale);
+
+const gamemodes = config.gamemodes;
+const partners = config.partners;
+---
+
+<MainLayout>
+  <!-- Hero -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20">
+    
+    <!-- Ambient glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[#F97316]/[0.07] rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
+      
+      <!-- Subtitle -->
+      <p class="font-pixel text-[11px] text-[#F97316]/70 tracking-[0.2em] uppercase mb-6">
+        {t(localeData, 'home.subtitle')}
+      </p>
+      
+      <!-- Banner -->
+      <div class="mb-8">
+        <img 
+          src={config.server.banner} 
+          alt={config.server.name}
+          class="h-20 sm:h-28 w-auto mx-auto object-contain opacity-90"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      
+      <!-- Title -->
+      <h1 class="font-pixel text-3xl sm:text-5xl md:text-6xl text-gradient mb-6 leading-tight">
+        <MinecraftText text={`§f${config.server.name}`} />
+      </h1>
+      
+      <!-- Description -->
+      <p class="font-pixel text-xs sm:text-sm text-white/40 max-w-lg mx-auto leading-relaxed mb-10">
+        {t(localeData, 'home.description')}
+      </p>
+      
+      <!-- Server Status -->
+      <div class="mb-10">
+        <ServerStatus localeData={localeData} />
+      </div>
+      
+      <!-- CTA -->
+      <div class="flex flex-col items-center gap-3">
+        <a href="#gamemodes" class="btn-primary">
+          {t(localeData, 'home.cta')}
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Modes -->
+  <section id="gamemodes" class="relative z-10 px-5 py-24">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="font-pixel text-[10px] text-[#F97316]/50 tracking-[0.15em] uppercase mb-3">GAME MODES</p>
+        <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.gamemodes.title')}</h2>
+      </div>
+      
+      <GameModesExpandable
+        client:load
+        modes={gamemodes}
+        comingSoonLabel={t(localeData, 'home.gamemodes.comingSoon')}
+        modeLabel={t(localeData, 'home.gamemodes.modeLabel')}
+        statusLabel={t(localeData, 'home.gamemodes.statusLabel')}
+        focusLabel={t(localeData, 'home.gamemodes.focusLabel')}
+        focusValue={t(localeData, 'home.gamemodes.focusValue')}
+      />
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="relative z-10 px-5 py-24 border-t border-white/[0.04]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="font-pixel text-[10px] text-[#F97316]/50 tracking-[0.15em] uppercase mb-3">PARTNERS</p>
+        <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.partners.title')}</h2>
+      </div>
+      
+      <LogoCarousel 
+        client:load
+        logos={partners.map((p, i) => ({ id: i, name: p.name, img: p.logo }))}
+        columnCount={3}
+      />
+    </div>
+  </section>
+</MainLayout>

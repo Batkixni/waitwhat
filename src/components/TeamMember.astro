@@ -1,0 +1,48 @@
+---
+interface Props {
+  username: string;
+  rank: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { username, rank, size = 'md' } = Astro.props;
+
+const sizes = {
+  sm: 'w-12 h-12',
+  md: 'w-16 h-16',
+  lg: 'w-20 h-20'
+};
+
+const textSizes = {
+  sm: 'text-[9px]',
+  md: 'text-[10px]',
+  lg: 'text-xs'
+};
+
+// Deterministic UUID from username string
+function strToUUID(str: string): string {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = str.charCodeAt(i) + ((h << 5) - h);
+  const hex = Math.abs(h).toString(16).padStart(32, '0');
+  return `${hex.slice(0,8)}-${hex.slice(8,12)}-4${hex.slice(13,16)}-a${hex.slice(17,20)}-${hex.slice(20,32)}`;
+}
+
+const uuid = strToUUID(username);
+const avatarUrl = `https://api.mineatar.io/face/${uuid}`;
+const fallbackUrl = 'https://api.mineatar.io/face/069a79f4-44e9-4726-a5be-fca90e38aaf5';
+---
+
+<div class="flex flex-col items-center gap-2 group">
+  <div class={`${sizes[size]} rounded-xl overflow-hidden bg-white/[0.03] border border-white/[0.06] group-hover:border-[#F97316]/20 transition-all duration-300 group-hover:scale-105`}>
+    <img
+      src={avatarUrl}
+      alt={username}
+      class="w-full h-full object-cover"
+      onerror={`this.src='${fallbackUrl}'`}
+      loading="lazy"
+    />
+  </div>
+  <span class={`font-pixel ${textSizes[size]} text-white/50 group-hover:text-white/80 transition-colors`}>
+    {username}
+  </span>
+</div>
