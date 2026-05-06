@@ -1,5 +1,6 @@
 ---
 import config from '@utils/config';
+import ServerStatusBeam from '@components/ui/server-status-beam';
 
 interface Props {
   localeData: any;
@@ -10,109 +11,11 @@ const serverIp = config.server.ip;
 const isDev = import.meta.env.DEV;
 ---
 
-<div 
-  id="server-status" 
-  class={`inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-500 ${
-    isDev 
-      ? 'bg-red-500/[0.04] border-red-500/20' 
-      : 'bg-white/[0.02] border-white/[0.06]'
-  }`}
->
-  <!-- Status Dot -->
-  <div class="relative flex-shrink-0">
-    <div 
-      id="status-dot" 
-      class={`w-2 h-2 rounded-full ${isDev ? 'bg-red-500' : 'bg-[#22C55E]'} transition-colors duration-500`}
-    ></div>
-    <div 
-      id="status-ping" 
-      class={`absolute inset-0 w-2 h-2 rounded-full ${isDev ? 'bg-red-500' : 'bg-[#22C55E]'} animate-ping opacity-20`}
-    ></div>
-  </div>
-  
-  <!-- Info -->
-  <div class="flex flex-col">
-    <span id="status-label" class="font-pixel text-[10px] text-white/30 transition-colors">
-      {isDev ? localeData.home?.serverStatus?.offline || 'Offline' : 'Checking...'}
-    </span>
-    <span id="player-count" class="font-pixel text-[10px] text-white/50 hidden"></span>
-  </div>
-  
-  <!-- Divider -->
-  <div class="w-px h-5 bg-white/[0.06]"></div>
-  
-  <!-- IP + Copy -->
-  <div class="flex items-center gap-2">
-    <span class="font-pixel text-xs text-white/70 tracking-wider">{serverIp}</span>
-    
-    <button
-      id="copy-btn"
-      type="button"
-      class="p-1.5 rounded-md hover:bg-white/[0.06] transition-all group"
-      aria-label="Copy IP"
-    >
-      <svg id="copy-icon" class="w-3.5 h-3.5 text-white/25 group-hover:text-white/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-      </svg>
-      <svg id="check-icon" class="w-3.5 h-3.5 text-[#22C55E] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-      </svg>
-    </button>
-  </div>
-</div>
-
-<script define:vars={{ serverIp, isDev, localeData }}>
-  const dot = document.getElementById('status-dot');
-  const ping = document.getElementById('status-ping');
-  const label = document.getElementById('status-label');
-  const count = document.getElementById('player-count');
-  const container = document.getElementById('server-status');
-  const copyBtn = document.getElementById('copy-btn');
-  const copyIcon = document.getElementById('copy-icon');
-  const checkIcon = document.getElementById('check-icon');
-
-  async function update() {
-    if (isDev) {
-      label.textContent = localeData.home?.serverStatus?.offline || 'Offline';
-      container.className = 'inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-500 bg-red-500/[0.04] border-red-500/20';
-      return;
-    }
-    try {
-      const res = await fetch('/api/status');
-      const data = await res.json();
-      if (data.online) {
-        dot.className = 'w-2 h-2 rounded-full bg-[#22C55E] transition-colors duration-500';
-        ping.className = 'absolute inset-0 w-2 h-2 rounded-full bg-[#22C55E] animate-ping opacity-20';
-        label.textContent = localeData.home?.serverStatus?.online || 'Online';
-        label.className = 'font-pixel text-[10px] text-[#22C55E]/70 transition-colors';
-        count.textContent = `${data.players?.online || 0} / ${data.players?.max || 0} ${localeData.home?.serverStatus?.players || 'players'}`;
-        count.classList.remove('hidden');
-        container.className = 'inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-500 bg-[#22C55E]/[0.04] border-[#22C55E]/20';
-      } else {
-        throw new Error('offline');
-      }
-    } catch {
-      dot.className = 'w-2 h-2 rounded-full bg-red-500 transition-colors duration-500';
-      ping.className = 'absolute inset-0 w-2 h-2 rounded-full bg-red-500 animate-ping opacity-20';
-      label.textContent = localeData.home?.serverStatus?.offline || 'Offline';
-      label.className = 'font-pixel text-[10px] text-red-400/60 transition-colors';
-      count.classList.add('hidden');
-      container.className = 'inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-500 bg-red-500/[0.04] border-red-500/20';
-    }
-  }
-
-  copyBtn?.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(serverIp);
-      copyIcon.classList.add('hidden');
-      checkIcon.classList.remove('hidden');
-      setTimeout(() => {
-        copyIcon.classList.remove('hidden');
-        checkIcon.classList.add('hidden');
-      }, 2000);
-    } catch (e) { console.error(e); }
-  });
-
-  update();
-  setInterval(update, 30000);
-</script>
+<ServerStatusBeam
+  client:only="react"
+  serverIp={serverIp}
+  offlineLabel={localeData.home?.serverStatus?.offline || 'Offline'}
+  onlineLabel={localeData.home?.serverStatus?.online || 'Online'}
+  playersLabel={localeData.home?.serverStatus?.players || 'players'}
+  initialOffline={isDev}
+/>

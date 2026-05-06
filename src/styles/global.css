@@ -165,7 +165,7 @@ body.locale-zh-tw {
 .card {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
+  border-radius: 4px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -185,7 +185,7 @@ body.locale-zh-tw {
   color: #000;
   font-family: var(--font-pixel);
   font-size: 13px;
-  border-radius: 10px;
+  border-radius: 2px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -206,7 +206,7 @@ body.locale-zh-tw {
   color: rgba(255,255,255,0.7);
   font-family: var(--font-pixel);
   font-size: 13px;
-  border-radius: 10px;
+  border-radius: 2px;
   border: 1px solid rgba(255,255,255,0.08);
   cursor: pointer;
   transition: all 0.2s ease;

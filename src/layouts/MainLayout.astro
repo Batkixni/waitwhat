@@ -70,7 +70,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.orig
   
   <Footer locale={locale} localeData={localeData} />
   
-  <BottomBlur client:load height={80} hideOnFooter={true} />
+  <BottomBlur client:load height={140} hideOnFooter={true} />
   
   <script define:vars={{ locale }}>
     document.cookie = `lang=${locale};path=/;max-age=31536000;SameSite=Lax`;

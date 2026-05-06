@@ -8,8 +8,8 @@ interface EdgeBlurProps {
   hideOnFooter?: boolean
 }
 
-function EdgeBlur({ position = "bottom", height = 75, hideOnFooter = false }: EdgeBlurProps) {
-  const blurLayers = [1, 2, 3, 6, 12]
+function EdgeBlur({ position = "bottom", height = 120, hideOnFooter = false }: EdgeBlurProps) {
+  const blurLayers = [2, 4, 8, 14, 24]
   const isTop = position === "top"
   const [visible, setVisible] = useState(true)
 
@@ -53,10 +53,10 @@ function EdgeBlur({ position = "bottom", height = 75, hideOnFooter = false }: Ed
   )
 }
 
-export function TopBlur({ height = 75 }: { height?: number }) {
+export function TopBlur({ height = 120 }: { height?: number }) {
   return <EdgeBlur position="top" height={height} />
 }
 
-export function BottomBlur({ height = 75, hideOnFooter = false }: { height?: number; hideOnFooter?: boolean }) {
+export function BottomBlur({ height = 120, hideOnFooter = false }: { height?: number; hideOnFooter?: boolean }) {
   return <EdgeBlur position="bottom" height={height} hideOnFooter={hideOnFooter} />
 }

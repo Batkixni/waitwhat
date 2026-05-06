@@ -4,40 +4,72 @@ import ServerStatus from '@components/ServerStatus.astro';
 import MinecraftText from '@components/MinecraftText.astro';
 import LogoCarousel from '@components/ui/logo-carousel';
 import GameModesExpandable from '@components/ui/game-modes-expandable';
+import { GradientBars } from '@components/gradient-bars';
 import { loadLocale, detectLocale, t } from '@utils/i18n';
 import config from '@utils/config';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const { cookies, request } = Astro;
 const locale = detectLocale(cookies, request.headers, Astro.url);
 const localeData = await loadLocale(locale);
 
 const gamemodes = config.gamemodes;
-const partners = config.partners;
+
+const partnerDir = path.join(Astro.locals?.runtime?.cwd || process.cwd(), 'public', 'images', 'partner');
+const fallbackPartnerDir = path.join(Astro.locals?.runtime?.cwd || process.cwd(), 'public', 'images');
+
+const partnerFiles = fs.existsSync(partnerDir)
+  ? fs.readdirSync(partnerDir).filter(file => /\.(png|jpe?g|webp|svg|gif)$/i.test(file)).sort()
+  : fs.existsSync(fallbackPartnerDir)
+    ? fs.readdirSync(fallbackPartnerDir).filter(file => /^partner\d+\.(png|jpe?g|webp|svg|gif)$/i.test(file)).sort()
+    : [];
+
+const partners = partnerFiles.map((file, i) => ({
+  id: i,
+  name: file.replace(/\.[^.]+$/, ''),
+  img: fs.existsSync(partnerDir) ? `/images/partner/${file}` : `/images/${file}`
+}));
 ---
 
 <MainLayout>
   <!-- Hero -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20">
-    
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img
+        src={config.server.banner}
+        alt={config.server.name}
+        class="w-full h-full object-cover opacity-45"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-black/38"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.18),rgba(0,0,0,0.62))]"></div>
+
+      <div class="absolute inset-x-0 bottom-10 h-[50vw] z-[1] pointer-events-none opacity-90 mix-blend-screen">
+        <GradientBars
+          client:load
+          colors={["rgba(249,115,22,0)", "rgba(249,115,22,0.58)", "rgba(251,146,60,0.24)", "rgba(0,0,0,0)"]}
+          numBars={26}
+          minScale={0.14}
+          maxScale={1}
+          animation="wave"
+          duration={2.8}
+          delayStep={0.04}
+          className="opacity-90 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]"
+        />
+      </div>
+    </div>
+
     <!-- Ambient glow -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[#F97316]/[0.07] rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.16)_22%,rgba(0,0,0,0.68)_70%,#000_100%)] pointer-events-none z-10"></div>
     
-    <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
+    <div class="relative z-20 flex flex-col items-center text-center max-w-3xl mx-auto">
       
       <!-- Subtitle -->
       <p class="font-pixel text-[11px] text-[#F97316]/70 tracking-[0.2em] uppercase mb-6">
         {t(localeData, 'home.subtitle')}
       </p>
-      
-      <!-- Banner -->
-      <div class="mb-8">
-        <img 
-          src={config.server.banner} 
-          alt={config.server.name}
-          class="h-20 sm:h-28 w-auto mx-auto object-contain opacity-90"
-          onerror="this.style.display='none'"
-        />
-      </div>
       
       <!-- Title -->
       <h1 class="font-pixel text-3xl sm:text-5xl md:text-6xl text-gradient mb-6 leading-tight">
@@ -96,7 +128,7 @@ const partners = config.partners;
       
       <LogoCarousel 
         client:load
-        logos={partners.map((p, i) => ({ id: i, name: p.name, img: p.logo }))}
+        logos={partners}
         columnCount={3}
       />
     </div>

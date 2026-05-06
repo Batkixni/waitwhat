@@ -1,7 +1,14 @@
 "use client"
 
-import React, { useMemo, useState } from "react"
-import { AnimatePresence, motion } from "motion/react"
+import React, { useState } from "react"
+import {
+  Expandable,
+  ExpandableCard,
+  ExpandableCardContent,
+  ExpandableCardHeader,
+  ExpandableContent,
+  ExpandableTrigger,
+} from "@components/ui/expandable"
 
 export interface ExpandableGameMode {
   id: string
@@ -35,103 +42,108 @@ function GameModesExpandable({
 }: GameModesExpandableProps) {
   const [activeId, setActiveId] = useState<string>(modes[0]?.id ?? "")
 
-  const activeMode = useMemo(
-    () => modes.find((mode) => mode.id === activeId) ?? modes[0],
-    [activeId, modes]
-  )
-
-  if (!modes.length || !activeMode) return null
+  if (!modes.length) return null
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[0.95fr_1.35fr]">
-      <div className="flex flex-col gap-3">
-        {modes.map((mode) => {
-          const isActive = mode.id === activeId
+    <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:justify-center">
+      {modes.map((mode) => {
+        const isExpanded = mode.id === activeId
+        const emoji = emojiByMode[mode.id] ?? "🎮"
 
-          return (
-            <button
-              key={mode.id}
-              type="button"
-              onClick={() => setActiveId(mode.id)}
-              className={`w-full rounded-2xl border text-left transition-all duration-300 ${
-                isActive
-                  ? "border-[#F97316]/30 bg-[#F97316]/[0.08] shadow-[0_0_0_1px_rgba(249,115,22,0.06)]"
-                  : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] hover:bg-white/[0.04]"
-              }`}
-              aria-pressed={isActive}
-            >
-              <div className="flex items-center gap-4 p-4 sm:p-5">
-                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border text-xl ${
-                  isActive
-                    ? "border-[#F97316]/30 bg-[#F97316]/10"
-                    : "border-white/[0.08] bg-white/[0.03]"
-                }`}>
-                  {emojiByMode[mode.id] ?? "🎮"}
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="mb-1 flex items-center justify-between gap-3">
-                    <h3 className="font-pixel text-sm text-white/90">{mode.name}</h3>
-                    <span className="rounded-md border border-[#F97316]/10 bg-[#F97316]/5 px-2 py-0.5 font-pixel text-[9px] text-[#F97316]/70">
-                      {comingSoonLabel}
-                    </span>
-                  </div>
-                  <p className="font-pixel text-[10px] leading-relaxed text-white/35">
-                    {mode.description}
-                  </p>
-                </div>
-              </div>
-            </button>
-          )
-        })}
-      </div>
-
-      <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6 sm:p-7 min-h-[320px]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.16),transparent_55%)]" />
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeMode.id}
-            initial={{ opacity: 0, y: 12, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -12, filter: "blur(8px)" }}
-            transition={{ duration: 0.24, ease: "easeOut" }}
-            className="relative z-10 flex h-full flex-col"
+        return (
+          <Expandable
+            key={mode.id}
+            expanded={isExpanded}
+            onToggle={() => setActiveId(mode.id)}
+            expandDirection="horizontal"
+            transitionDuration={0.28}
+            className="w-full lg:w-auto"
           >
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <div>
-                <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#F97316]/20 bg-[#F97316]/10 text-2xl">
-                  {emojiByMode[activeMode.id] ?? "🎮"}
+            <ExpandableCard
+              collapsedSize={{ width: 220, height: 360 }}
+              expandedSize={{ width: 720, height: 360 }}
+              className="w-full lg:max-w-none"
+            >
+              <div className="grid h-full grid-cols-1 rounded-sm border border-white/[0.06] bg-white/[0.02] p-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]">
+                <div className={`relative flex h-full flex-col overflow-hidden rounded-sm border ${
+                  isExpanded
+                    ? "border-[#F97316]/20 bg-[#0F0A07]"
+                    : "border-white/[0.06] bg-[#0B0B0B]"
+                }`}>
+                  <div className={`pointer-events-none absolute inset-0 ${
+                    isExpanded
+                      ? "bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.2),transparent_58%)]"
+                      : "bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_52%)]"
+                  }`} />
+
+                  <ExpandableTrigger className="relative h-full outline-none">
+                    <div className="flex h-full flex-col justify-between">
+                      <ExpandableCardHeader className="pb-4">
+                        <div className="flex w-full items-start justify-between gap-3">
+                          <div className={`inline-flex h-14 w-14 items-center justify-center rounded-sm border text-2xl ${
+                            isExpanded
+                              ? "border-[#F97316]/25 bg-[#F97316]/10"
+                              : "border-white/[0.08] bg-white/[0.03]"
+                          }`}>
+                            {emoji}
+                          </div>
+
+                          <span className={`rounded-sm border px-3 py-1.5 font-pixel text-[10px] ${
+                            isExpanded
+                              ? "border-[#F97316]/12 bg-[#F97316]/8 text-[#F97316]/75"
+                              : "border-white/[0.08] bg-white/[0.03] text-white/35"
+                          }`}>
+                            {comingSoonLabel}
+                          </span>
+                        </div>
+                      </ExpandableCardHeader>
+
+                      <ExpandableCardContent className="flex flex-1 flex-col justify-end px-6 pb-6 pt-2">
+                        {isExpanded ? (
+                          <h3 className="font-pixel text-xl leading-[1.1] text-white/90 sm:text-2xl">
+                            {mode.name}
+                          </h3>
+                        ) : (
+                          <h3 className="font-pixel text-base leading-[1.15] text-white/80 transition-colors duration-200">
+                            {mode.name}
+                          </h3>
+                        )}
+
+                        {!isExpanded && (
+                          <p className="mt-3 line-clamp-3 font-pixel text-[10px] leading-relaxed text-white/30 lg:hidden">
+                            {mode.description}
+                          </p>
+                        )}
+
+                        <ExpandableContent preset="slide-up" className="mt-4" transition={{ duration: 0.18 }}>
+                          <p className="max-w-lg font-pixel text-xs leading-relaxed text-white/50 sm:text-sm">
+                            {mode.description}
+                          </p>
+
+                          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                              <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{modeLabel}</div>
+                              <div className="font-pixel text-xs text-white/80">{mode.name}</div>
+                            </div>
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                              <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{statusLabel}</div>
+                              <div className="font-pixel text-xs text-[#F97316]/80">{comingSoonLabel}</div>
+                            </div>
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                              <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{focusLabel}</div>
+                              <div className="font-pixel text-xs text-white/80">{focusValue}</div>
+                            </div>
+                          </div>
+                        </ExpandableContent>
+                      </ExpandableCardContent>
+                    </div>
+                  </ExpandableTrigger>
                 </div>
-                <h3 className="font-pixel text-xl text-white/90 sm:text-2xl">{activeMode.name}</h3>
               </div>
-
-              <span className="rounded-lg border border-[#F97316]/10 bg-[#F97316]/5 px-3 py-1.5 font-pixel text-[10px] text-[#F97316]/75">
-                {comingSoonLabel}
-              </span>
-            </div>
-
-            <p className="max-w-lg font-pixel text-xs leading-relaxed text-white/50 sm:text-sm">
-              {activeMode.description}
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
-                <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{modeLabel}</div>
-                <div className="font-pixel text-xs text-white/80">{activeMode.name}</div>
-              </div>
-              <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
-                <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{statusLabel}</div>
-                <div className="font-pixel text-xs text-[#F97316]/80">{comingSoonLabel}</div>
-              </div>
-              <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
-                <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{focusLabel}</div>
-                <div className="font-pixel text-xs text-white/80">{focusValue}</div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            </ExpandableCard>
+          </Expandable>
+        )
+      })}
     </div>
   )
 }
