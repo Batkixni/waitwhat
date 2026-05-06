@@ -29,8 +29,8 @@ bun run preview    # Preview build
 |-------|-------|-------|
 | `--color-bg-primary` | `#000000` | Page background |
 | `--color-bg-card` | `#111111` | Card backgrounds |
-| `--color-accent` | `#F97316` | Primary accent (orange-500) |
-| `--color-accent-light` | `#FB923C` | Hover states |
+| `--color-accent` | `#F7EE13` | Primary accent (yellow) |
+| `--color-accent-light` | `#17AB88` | Secondary accent (green) |
 | `--color-text-primary` | `#FFFFFF` | Headings |
 | `--color-text-secondary` | `rgba(255,255,255,0.55)` | Body text |
 | `--color-text-tertiary` | `rgba(255,255,255,0.35)` | Captions |

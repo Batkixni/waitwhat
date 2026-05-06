@@ -294,7 +294,7 @@ export function PixelHeading({
         tabIndex={0}
         className={cn(
           "cursor-default select-none",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7EE13]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
           mode === "uniform" && PIXEL_FONTS[uniformIdx],
           className
         )}

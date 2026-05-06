@@ -22,7 +22,7 @@ const defaultCurrency = shop.currency.default;
       <!-- Header -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 mb-12">
         <div>
-          <p class="font-pixel text-[10px] text-[#F97316]/50 tracking-[0.15em] uppercase mb-2">STORE</p>
+          <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-2">STORE</p>
           <h1 class="font-pixel text-2xl sm:text-3xl text-white/90 mb-2">{t(localeData, 'shop.title')}</h1>
           <p class="font-pixel text-xs text-white/30">{t(localeData, 'shop.description')}</p>
         </div>
@@ -53,7 +53,7 @@ const defaultCurrency = shop.currency.default;
           >
             <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             <span class="font-pixel text-[10px] text-white/50">{t(localeData, 'shop.cart')}</span>
-            <span id="cart-badge" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#F97316] text-black font-pixel text-[8px] flex items-center justify-center hidden">0</span>
+            <span id="cart-badge" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#F7EE13] text-black font-pixel text-[8px] flex items-center justify-center hidden">0</span>
           </button>
         </div>
       </div>
@@ -67,7 +67,7 @@ const defaultCurrency = shop.currency.default;
         </div>
       ) : (
         <div class="card p-10 text-center">
-          <div class="w-14 h-14 rounded-2xl bg-[#F97316]/5 border border-[#F97316]/10 flex items-center justify-center mx-auto mb-5 text-xl">
+          <div class="w-14 h-14 rounded-2xl bg-[#F7EE13]/5 border border-[#F7EE13]/10 flex items-center justify-center mx-auto mb-5 text-xl">
             🛒
           </div>
           <h3 class="font-pixel text-base text-white/70 mb-2">{shop.provider === 'tebex' ? 'Tebex Store' : 'MCSets Store'}</h3>

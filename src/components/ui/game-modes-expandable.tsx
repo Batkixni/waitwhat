@@ -67,12 +67,12 @@ function GameModesExpandable({
               <div className="grid h-full grid-cols-1 rounded-sm border border-white/[0.06] bg-white/[0.02] p-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]">
                 <div className={`relative flex h-full flex-col overflow-hidden rounded-sm border ${
                   isExpanded
-                    ? "border-[#F97316]/20 bg-[#0F0A07]"
+                    ? "border-[#F7EE13]/20 bg-[#0F0A07]"
                     : "border-white/[0.06] bg-[#0B0B0B]"
                 }`}>
                   <div className={`pointer-events-none absolute inset-0 ${
                     isExpanded
-                      ? "bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.2),transparent_58%)]"
+                      ? "bg-[radial-gradient(circle_at_top,rgba(247,238,19,0.2),transparent_58%)]"
                       : "bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_52%)]"
                   }`} />
 
@@ -82,7 +82,7 @@ function GameModesExpandable({
                         <div className="flex w-full items-start justify-between gap-3">
                           <div className={`inline-flex h-14 w-14 items-center justify-center rounded-sm border text-2xl ${
                             isExpanded
-                              ? "border-[#F97316]/25 bg-[#F97316]/10"
+                              ? "border-[#F7EE13]/25 bg-[#F7EE13]/10"
                               : "border-white/[0.08] bg-white/[0.03]"
                           }`}>
                             {emoji}
@@ -90,7 +90,7 @@ function GameModesExpandable({
 
                           <span className={`rounded-sm border px-3 py-1.5 font-pixel text-[10px] ${
                             isExpanded
-                              ? "border-[#F97316]/12 bg-[#F97316]/8 text-[#F97316]/75"
+                              ? "border-[#F7EE13]/12 bg-[#F7EE13]/8 text-[#F7EE13]/75"
                               : "border-white/[0.08] bg-white/[0.03] text-white/35"
                           }`}>
                             {comingSoonLabel}
@@ -127,7 +127,7 @@ function GameModesExpandable({
                             </div>
                             <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{statusLabel}</div>
-                              <div className="font-pixel text-xs text-[#F97316]/80">{comingSoonLabel}</div>
+                              <div className="font-pixel text-xs text-[#F7EE13]/80">{comingSoonLabel}</div>
                             </div>
                             <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{focusLabel}</div>

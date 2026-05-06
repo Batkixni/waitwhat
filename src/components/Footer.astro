@@ -30,12 +30,12 @@ const socialLinks = [
     <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
       <div class="max-w-xl">
         <div class="flex items-center gap-4 mb-5">
-          <div class="w-14 h-14 rounded-sm bg-[#F97316] flex items-center justify-center text-2xl text-black border border-[#F97316]/40">
+          <div class="w-14 h-14 rounded-sm bg-[#F7EE13] flex items-center justify-center text-2xl text-black border border-[#F7EE13]/40">
             ⚔
           </div>
           <div>
             <div class="font-pixel text-xl sm:text-2xl text-white/95 leading-none">{config.server.name}</div>
-            <div class="font-pixel text-sm text-[#F97316]/70 mt-2 tracking-wide">Minecraft Network</div>
+            <div class="font-pixel text-sm text-[#F7EE13]/70 mt-2 tracking-wide">Minecraft Network</div>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ const socialLinks = [
       <div class="flex flex-col gap-8 lg:items-end">
         <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:justify-end">
           {primaryLinks.map(link => (
-            <a href={link.href} class="font-pixel text-sm sm:text-base text-white/55 hover:text-[#F97316] transition-colors">
+            <a href={link.href} class="font-pixel text-sm sm:text-base text-white/55 hover:text-[#F7EE13] transition-colors">
               {t(localeData, link.key)}
             </a>
           ))}

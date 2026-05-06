@@ -45,9 +45,9 @@
   --font-geist-pixel-circle: 'GeistPixelCircle', monospace;
   --font-geist-pixel-triangle: 'GeistPixelTriangle', monospace;
   --font-geist-pixel-line: 'GeistPixelLine', monospace;
-  --color-accent: #F97316;
-  --color-accent-light: #FB923C;
-  --color-accent-dark: #C2410C;
+  --color-accent: #F7EE13;
+  --color-accent-light: #17AB88;
+  --color-accent-dark: #0D8A6C;
   --color-bg-primary: #000000;
   --color-bg-secondary: #0A0A0A;
   --color-bg-card: #111111;
@@ -85,7 +85,7 @@ body.locale-zh-tw {
 }
 
 ::selection {
-  background: rgba(249,115,22,0.3);
+  background: rgba(247,238,19,0.3);
   color: #fff;
 }
 
@@ -113,8 +113,8 @@ body.locale-zh-tw {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 12px rgba(249,115,22,0.15); }
-  50% { box-shadow: 0 0 24px rgba(249,115,22,0.3); }
+  0%, 100% { box-shadow: 0 0 12px rgba(247,238,19,0.15); }
+  50% { box-shadow: 0 0 24px rgba(247,238,19,0.3); }
 }
 
 @keyframes shimmer {
@@ -137,21 +137,21 @@ body.locale-zh-tw {
 
 /* ─── Utilities ─── */
 .text-gradient {
-  background: linear-gradient(135deg, #fff 0%, #FB923C 100%);
+  background: linear-gradient(135deg, #fff 0%, #F7EE13 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-accent {
-  background: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #FDBA74 100%);
+  background: linear-gradient(135deg, #F7EE13 0%, #17AB88 50%, #7CC8C0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient-radial {
-  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(247,238,19,0.12) 0%, transparent 70%);
 }
 
 .bg-grid {
@@ -181,7 +181,7 @@ body.locale-zh-tw {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: #F97316;
+  background: #F7EE13;
   color: #000;
   font-family: var(--font-pixel);
   font-size: 13px;
@@ -192,9 +192,9 @@ body.locale-zh-tw {
 }
 
 .btn-primary:hover {
-  background: #FB923C;
+  background: #FBF34D;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(249,115,22,0.3);
+  box-shadow: 0 8px 24px rgba(247,238,19,0.3);
 }
 
 .btn-ghost {

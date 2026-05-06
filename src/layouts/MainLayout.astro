@@ -20,7 +20,7 @@ const localeData = await loadLocale(locale);
 const {
   title = localeData.meta?.title || config.server.name,
   description = localeData.meta?.description || config.server.description,
-  color = '#F97316',
+  color = '#F7EE13',
   image = localeData.meta?.image || config.server.banner
 } = Astro.props;
 
@@ -56,7 +56,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.orig
   <link rel="dns-prefetch" href="https://api.mineatar.io" />
   
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23F97316' rx='20' width='100' height='100'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='50'>⚔</text></svg>" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 <body class={`bg-black text-white min-h-screen flex flex-col antialiased locale-${locale}`}>
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>

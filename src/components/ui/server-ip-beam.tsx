@@ -39,7 +39,7 @@ function ServerIpBeam({ serverIp }: ServerIpBeamProps) {
       <span className="font-pixel text-xs tracking-wider text-white/75">{serverIp}</span>
 
       {copied ? (
-        <svg className="h-3.5 w-3.5 shrink-0 text-[#F97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-3.5 w-3.5 shrink-0 text-[#F7EE13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
         </svg>
       ) : (
