@@ -30,7 +30,13 @@ const socialLinks = [
     <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
       <div class="max-w-xl">
         <div class="flex items-center gap-4 mb-5">
-          <div class="w-14 h-14 rounded-sm bg-[#F7EE13] flex items-center justify-center text-2xl text-black border border-[#F7EE13]/40">
+          <img
+            src="/images/logo.png"
+            alt={config.server.name}
+            class="h-14 w-auto object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+          />
+          <div class="w-14 h-14 rounded-sm bg-[#F7EE13] hidden items-center justify-center text-2xl text-black border border-[#F7EE13]/40">
             ⚔
           </div>
           <div>
