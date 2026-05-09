@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.0.0",
     "@astrojs/react": "^5.0.4",
+    "@astrojs/vercel": "8",
     "@radix-ui/react-slot": "^1.2.4",
     "astro": "^5.0.0",
     "border-beam": "^1.0.1",
