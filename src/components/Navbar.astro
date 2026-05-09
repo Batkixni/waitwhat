@@ -11,15 +11,25 @@ const { locale, localeData } = Astro.props;
 const availableLocales = config.locale.available;
 
 const navLinks = [
-  { href: '/shop', key: 'nav.shop', icon: '🛒' },
-  { href: '/rules', key: 'nav.rules', icon: '📜' },
-  { href: '/about', key: 'nav.about', icon: '👤' },
+  { href: '/shop', key: 'nav.shop', icon: 'shop' },
+  { href: '/rules', key: 'nav.rules', icon: 'rules' },
+  { href: '/about', key: 'nav.about', icon: 'about' },
 ];
 
 const currentPath = Astro.url.pathname;
+
+const pixelIcon = (name: string) => {
+  const icons: Record<string, string> = {
+    shop: `<svg viewBox="0 0 12 12" fill="currentColor" class="w-3.5 h-3.5 opacity-60 shrink-0"><rect x="2" y="1" width="2" height="2"/><rect x="8" y="1" width="2" height="2"/><rect x="1" y="3" width="10" height="8"/><rect x="3" y="5" width="6" height="4" fill="rgba(0,0,0,0.3)"/></svg>`,
+    rules: `<svg viewBox="0 0 10 12" fill="currentColor" class="w-3.5 h-3.5 opacity-60 shrink-0"><rect x="2" y="1" width="6" height="10"/><rect x="3" y="3" width="4" height="1" fill="rgba(0,0,0,0.3)"/><rect x="3" y="5" width="4" height="1" fill="rgba(0,0,0,0.3)"/><rect x="3" y="7" width="3" height="1" fill="rgba(0,0,0,0.3)"/></svg>`,
+    about: `<svg viewBox="0 0 10 12" fill="currentColor" class="w-3.5 h-3.5 opacity-60 shrink-0"><rect x="3" y="1" width="4" height="3"/><rect x="2" y="5" width="6" height="6"/><rect x="4" y="6" width="2" height="1" fill="rgba(0,0,0,0.3)"/><rect x="4" y="8" width="2" height="1" fill="rgba(0,0,0,0.3)"/></svg>`,
+    language: `<svg viewBox="0 0 12 12" fill="currentColor" class="w-3.5 h-3.5 opacity-60 shrink-0"><rect x="4" y="1" width="4" height="1"/><rect x="2" y="2" width="2" height="1"/><rect x="8" y="2" width="2" height="1"/><rect x="1" y="3" width="1" height="6"/><rect x="10" y="3" width="1" height="6"/><rect x="4" y="10" width="4" height="1"/><rect x="2" y="9" width="2" height="1"/><rect x="8" y="9" width="2" height="1"/><rect x="5" y="3" width="2" height="6"/></svg>`,
+  };
+  return icons[name] || '';
+};
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/[0.03] backdrop-blur-2xl">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/[0.03] backdrop-blur-2xl border-b border-white/[0.04] transition-transform duration-300 ease-out">
   <div class="mx-auto max-w-6xl px-5">
     <div class="flex items-center justify-between h-14">
       
@@ -52,7 +62,7 @@ const currentPath = Astro.url.pathname;
                   : 'text-white/40 hover:text-white/70 hover:bg-white/[0.04]'
               }`}
             >
-              <span class="text-xs opacity-60">{link.icon}</span>
+              <Fragment set:html={pixelIcon(link.icon)} />
               {t(localeData, link.key)}
             </a>
           ))}
@@ -65,7 +75,7 @@ const currentPath = Astro.url.pathname;
           rel="noopener noreferrer"
           class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-white/40 hover:text-white/70 hover:bg-white/[0.04] transition-all font-pixel text-[11px]"
         >
-          <svg class="w-3.5 h-3.5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-3.5 h-3.5 text-[#5865F2] shrink-0" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
           </svg>
           <span class="hidden lg:inline">{t(localeData, 'nav.discord')}</span>
@@ -83,9 +93,9 @@ const currentPath = Astro.url.pathname;
             aria-expanded="false"
             class="flex items-center gap-2 px-2.5 py-1.5 rounded-sm hover:bg-white/[0.04] transition-all"
           >
-            <span class="text-xs">🌐</span>
+            <Fragment set:html={pixelIcon('language')} />
             <span class="font-pixel text-xs text-white/50 hidden sm:inline">{localeNames[locale] || locale}</span>
-            <svg class="w-3 h-3 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3 h-3 text-white/30 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -144,7 +154,7 @@ const currentPath = Astro.url.pathname;
                 : 'text-white/40 hover:text-white/70 hover:bg-white/[0.03]'
             }`}
           >
-            <span class="text-xs opacity-60">{link.icon}</span>
+            <Fragment set:html={pixelIcon(link.icon)} />
             {t(localeData, link.key)}
           </a>
         ))}
@@ -154,7 +164,7 @@ const currentPath = Astro.url.pathname;
           rel="noopener noreferrer"
           class="flex items-center gap-2 px-3 py-2.5 rounded-sm font-pixel text-xs text-white/40 hover:text-white/70 hover:bg-white/[0.03] transition-all"
         >
-          <svg class="w-4 h-4 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-4 h-4 text-[#5865F2] shrink-0" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
           </svg>
           Discord
@@ -239,5 +249,30 @@ const currentPath = Astro.url.pathname;
       }
       setLangOpen(false);
     });
+  });
+
+  // Hide navbar on scroll down, show on scroll up
+  const nav = document.querySelector('nav');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function onScroll() {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY <= 10) {
+      nav?.classList.remove('-translate-y-full');
+    } else if (currentScrollY > lastScrollY) {
+      nav?.classList.add('-translate-y-full');
+    } else {
+      nav?.classList.remove('-translate-y-full');
+    }
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
   });
 </script>
