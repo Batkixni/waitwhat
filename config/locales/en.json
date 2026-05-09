@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "PixelCraft Network - Minecraft Minigame Server",
-    "description": "Join PixelCraft Network for the best Minecraft minigame experience! Bed Wars, Sky Wars, Duels and more!",
+    "title": "WaitWhat - Minecraft Minigame Server",
+    "description": "Join WaitWhat for the best Minecraft minigame experience! Bed Wars, Sky Wars, Duels and more!",
     "color": "#00AA00",
-    "image": "/images/og-image.png"
+    "image": "/images/banner.png"
   },
   "nav": {
     "home": "Home",
@@ -15,7 +15,7 @@
   },
   "home": {
     "subtitle": "Welcome to",
-    "title": "PixelCraft Network",
+    "title": "WaitWhat",
     "description": "The ultimate Minecraft minigame server experience. Join thousands of players in epic battles!",
     "serverStatus": {
       "online": "Online",
@@ -39,8 +39,8 @@
   },
   "shop": {
     "meta": {
-      "title": "Shop - PixelCraft Network",
-      "description": "Support PixelCraft Network by purchasing ranks, cosmetics, and more!"
+      "title": "Shop - WaitWhat",
+      "description": "Support WaitWhat by purchasing ranks, cosmetics, and more!"
     },
     "title": "Server Shop",
     "description": "Support us and get awesome perks!",
@@ -54,8 +54,8 @@
   },
   "rules": {
     "meta": {
-      "title": "Rules - PixelCraft Network",
-      "description": "Rules and guidelines for all PixelCraft Network players."
+      "title": "Rules - WaitWhat",
+      "description": "Rules and guidelines for all WaitWhat players."
     },
     "title": "Server Rules",
     "lastUpdated": "Last Updated",
@@ -91,11 +91,11 @@
   },
   "about": {
     "meta": {
-      "title": "About - PixelCraft Network",
-      "description": "Learn more about PixelCraft Network, our team, and our journey."
+      "title": "About - WaitWhat",
+      "description": "Learn more about WaitWhat, our team, and our journey."
     },
     "title": "About Us",
-    "description": "PixelCraft Network was founded with a simple goal: to create the best Minecraft minigame experience for players around the world. Our dedicated team works tirelessly to bring you new features, game modes, and events.",
+    "description": "WaitWhat was founded with a simple goal: to create the best Minecraft minigame experience for players around the world. Our dedicated team works tirelessly to bring you new features, game modes, and events.",
     "milestones": {
       "title": "Our Journey"
     },
@@ -146,7 +146,7 @@
         "tiktok": "TikTok"
       }
     },
-    "copyright": "© {year} PixelCraft Network. All rights reserved.",
+    "copyright": "© {year} WaitWhat. All rights reserved.",
     "disclaimer": "Not affiliated with Mojang Studios or Microsoft."
   }
 }

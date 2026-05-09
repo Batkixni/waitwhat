@@ -1,6 +1,6 @@
 {
   "server": {
-    "name": "waitwhat",
+    "name": "WaitWhat",
     "ip": "play.pixelcraft.net",
     "port": 25565,
     "banner": "/images/banner.png",
@@ -83,7 +83,7 @@
     {
       "date": "2025-01-15",
       "title": "Server Launch",
-      "description": "PixelCraft Network officially launched!"
+      "description": "WaitWhat officially launched!"
     },
     {
       "date": "2025-03-20",

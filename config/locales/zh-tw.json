@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "PixelCraft Network - Minecraft 小遊戲伺服器",
-    "description": "加入 PixelCraft Network，體驗最棒的 Minecraft 小遊戲！起床戰爭、空島戰爭、決鬥等著你！",
+    "title": "WaitWhat - Minecraft 小遊戲伺服器",
+    "description": "加入 WaitWhat，體驗最棒的 Minecraft 小遊戲！起床戰爭、空島戰爭、決鬥等著你！",
     "color": "#00AA00",
-    "image": "/images/og-image.png"
+    "image": "/images/banner.png"
   },
   "nav": {
     "home": "首頁",
@@ -15,7 +15,7 @@
   },
   "home": {
     "subtitle": "歡迎來到",
-    "title": "PixelCraft Network",
+    "title": "WaitWhat",
     "description": "最棒的 Minecraft 小遊戲伺服器體驗。加入數千名玩家一起戰鬥！",
     "serverStatus": {
       "online": "在線",
@@ -39,8 +39,8 @@
   },
   "shop": {
     "meta": {
-      "title": "商店 - PixelCraft Network",
-      "description": "透過購買 rank、外觀等來支持 PixelCraft Network！"
+      "title": "商店 - WaitWhat",
+      "description": "透過購買 rank、外觀等來支持 WaitWhat！"
     },
     "title": "伺服器商店",
     "description": "支持我們並獲得超棒的特權！",
@@ -54,8 +54,8 @@
   },
   "rules": {
     "meta": {
-      "title": "規則 - PixelCraft Network",
-      "description": "所有 PixelCraft Network 玩家的規則與指南。"
+      "title": "規則 - WaitWhat",
+      "description": "所有 WaitWhat 玩家的規則與指南。"
     },
     "title": "伺服器規則",
     "lastUpdated": "最後更新",
@@ -91,11 +91,11 @@
   },
   "about": {
     "meta": {
-      "title": "關於 - PixelCraft Network",
-      "description": "了解更多關於 PixelCraft Network、我們的團隊與歷程。"
+      "title": "關於 - WaitWhat",
+      "description": "了解更多關於 WaitWhat、我們的團隊與歷程。"
     },
     "title": "關於我們",
-    "description": "PixelCraft Network 的成立只有一個簡單的目標：為世界各地的玩家創造最棒的 Minecraft 小遊戲體驗。我們的團隊不遺餘力地為你帶來新功能、遊戲模式和活動。",
+    "description": "WaitWhat 的成立只有一個簡單的目標：為世界各地的玩家創造最棒的 Minecraft 小遊戲體驗。我們的團隊不遺餘力地為你帶來新功能、遊戲模式和活動。",
     "milestones": {
       "title": "我們的歷程"
     },
@@ -146,7 +146,7 @@
         "tiktok": "TikTok"
       }
     },
-    "copyright": "© {year} PixelCraft Network. 版權所有。",
+    "copyright": "© {year} WaitWhat. 版權所有。",
     "disclaimer": "與 Mojang Studios 或 Microsoft 無關。"
   }
 }

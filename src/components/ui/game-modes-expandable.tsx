@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
   Expandable,
   ExpandableCard,
@@ -32,6 +32,20 @@ const emojiByMode: Record<string, string> = {
   duels: "⚔",
 }
 
+function useWindowWidth() {
+  const [width, setWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  )
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return width
+}
+
 function GameModesExpandable({
   modes,
   comingSoonLabel,
@@ -41,6 +55,8 @@ function GameModesExpandable({
   focusValue,
 }: GameModesExpandableProps) {
   const [activeId, setActiveId] = useState<string>(modes[0]?.id ?? "")
+  const width = useWindowWidth()
+  const isMobile = width < 1024
 
   if (!modes.length) return null
 
@@ -50,18 +66,26 @@ function GameModesExpandable({
         const isExpanded = mode.id === activeId
         const emoji = emojiByMode[mode.id] ?? "🎮"
 
+        const expandDirection = isMobile ? "vertical" : "horizontal"
+        const collapsedSize = isMobile
+          ? { width: undefined, height: 140 }
+          : { width: 220, height: 360 }
+        const expandedSize = isMobile
+          ? { width: undefined, height: 420 }
+          : { width: 720, height: 360 }
+
         return (
           <Expandable
             key={mode.id}
             expanded={isExpanded}
             onToggle={() => setActiveId(mode.id)}
-            expandDirection="horizontal"
+            expandDirection={expandDirection}
             transitionDuration={0.28}
             className="w-full lg:w-auto"
           >
             <ExpandableCard
-              collapsedSize={{ width: 220, height: 360 }}
-              expandedSize={{ width: 720, height: 360 }}
+              collapsedSize={collapsedSize}
+              expandedSize={expandedSize}
               className="w-full lg:max-w-none"
             >
               <div className="grid h-full grid-cols-1 rounded-sm border border-white/[0.06] bg-white/[0.02] p-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]">

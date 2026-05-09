@@ -80,7 +80,7 @@ function ServerStatusBeam({
       saturation={1.05}
       borderRadius={4}
       borderBeamClassName="w-full rounded-sm"
-      className="group inline-flex h-auto min-w-[320px] items-center justify-between gap-3 rounded-sm border-white/[0.08] bg-black/55 px-4 py-3 text-white shadow-none hover:bg-black/70 hover:text-white dark:border-white/[0.08] dark:bg-black/55 dark:text-white dark:hover:bg-black/70 dark:hover:text-white"
+      className="group inline-flex h-auto w-full min-w-0 sm:min-w-[320px] items-center justify-between gap-3 rounded-sm border-white/[0.08] bg-black/55 px-4 py-3 text-white shadow-none hover:bg-black/70 hover:text-white dark:border-white/[0.08] dark:bg-black/55 dark:text-white dark:hover:bg-black/70 dark:hover:text-white"
     >
       <div className="flex items-center gap-3">
         <div className="relative shrink-0">
