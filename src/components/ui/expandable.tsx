@@ -311,8 +311,8 @@ const ExpandableCard = React.forwardRef<HTMLDivElement, ExpandableCardProps>(
         ref={ref}
         className={cn("cursor-pointer", className)}
         style={{
-          width: expandDirection === "vertical" ? collapsedSize.width : smoothWidth,
-          height: expandDirection === "horizontal" ? collapsedSize.height : smoothHeight,
+          width: expandDirection === "vertical" ? (collapsedSize.width ?? "100%") : smoothWidth,
+          height: expandDirection === "horizontal" ? (collapsedSize.height ?? "100%") : smoothHeight,
         }}
         transition={springConfig}
         onHoverStart={handleHover}
@@ -363,7 +363,7 @@ const ExpandableCardHeader = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => (
   <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props}>
-    <motion.div layout className="flex items-start justify-between">
+    <motion.div layout className="flex items-start justify-between w-full">
       {children}
     </motion.div>
   </div>

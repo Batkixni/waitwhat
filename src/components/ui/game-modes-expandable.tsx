@@ -145,15 +145,15 @@ function GameModesExpandable({
                           </p>
 
                           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 w-full max-w-lg mx-auto lg:mx-0">
-                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4 text-center">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{modeLabel}</div>
                               <div className="font-pixel text-xs text-white/80">{mode.name}</div>
                             </div>
-                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4 text-center">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{statusLabel}</div>
                               <div className="font-pixel text-xs text-[#F7EE13]/80">{comingSoonLabel}</div>
                             </div>
-                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
+                            <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4 text-center">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{focusLabel}</div>
                               <div className="font-pixel text-xs text-white/80">{focusValue}</div>
                             </div>
