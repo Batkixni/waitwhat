@@ -103,7 +103,7 @@ function GameModesExpandable({
                   <ExpandableTrigger className="relative h-full outline-none">
                     <div className="flex h-full flex-col justify-between">
                       <ExpandableCardHeader className="pb-4">
-                        <div className="flex w-full items-start justify-between gap-3">
+                        <div className="flex w-full items-center justify-center gap-3 lg:items-start lg:justify-between">
                           <div className={`inline-flex h-14 w-14 items-center justify-center rounded-sm border text-2xl ${
                             isExpanded
                               ? "border-[#F7EE13]/25 bg-[#F7EE13]/10"
@@ -122,13 +122,13 @@ function GameModesExpandable({
                         </div>
                       </ExpandableCardHeader>
 
-                      <ExpandableCardContent className="flex flex-1 flex-col justify-end px-6 pb-6 pt-2">
+                      <ExpandableCardContent className="flex flex-1 flex-col items-center justify-end px-6 pb-6 pt-2 text-center lg:items-start lg:text-left">
                         {isExpanded ? (
-                          <h3 className="font-pixel text-xl leading-[1.1] text-white/90 sm:text-2xl">
+                          <h3 className="font-pixel text-xl leading-[1.1] text-white/90 sm:text-2xl mx-auto lg:mx-0">
                             {mode.name}
                           </h3>
                         ) : (
-                          <h3 className="font-pixel text-base leading-[1.15] text-white/80 transition-colors duration-200">
+                          <h3 className="font-pixel text-base leading-[1.15] text-white/80 transition-colors duration-200 mx-auto lg:mx-0">
                             {mode.name}
                           </h3>
                         )}
@@ -140,11 +140,11 @@ function GameModesExpandable({
                         )}
 
                         <ExpandableContent preset="slide-up" className="mt-4" transition={{ duration: 0.18 }}>
-                          <p className="max-w-lg font-pixel text-xs leading-relaxed text-white/50 sm:text-sm">
+                          <p className="max-w-lg font-pixel text-xs leading-relaxed text-white/50 sm:text-sm mx-auto lg:mx-0">
                             {mode.description}
                           </p>
 
-                          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                          <div className="mt-6 grid gap-3 sm:grid-cols-3 w-full max-w-lg mx-auto lg:mx-0">
                             <div className="rounded-sm border border-white/[0.06] bg-black/20 p-4">
                               <div className="mb-2 font-pixel text-[9px] uppercase tracking-[0.18em] text-white/25">{modeLabel}</div>
                               <div className="font-pixel text-xs text-white/80">{mode.name}</div>
