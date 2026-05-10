@@ -18,14 +18,14 @@ function LogoCarousel({ logos }: LogoCarouselProps) {
   const marqueeLogos = [...logos, ...logos]
 
   return (
-    <div className="relative mx-auto max-w-3xl overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.02] px-4 py-5 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+    <div className="relative mx-auto max-w-4xl overflow-hidden px-4 py-2 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
       <div className="flex w-max animate-partner-marquee items-center gap-10 will-change-transform">
         {marqueeLogos.map((logo, index) => {
           const content = (
             <img
               src={logo.img}
               alt={logo.name}
-              className="h-10 w-auto max-w-[140px] object-contain opacity-55 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0 sm:h-12"
+              className="h-14 w-auto max-w-[180px] object-contain opacity-80 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0 sm:h-16"
               loading="lazy"
             />
           )
@@ -36,7 +36,7 @@ function LogoCarousel({ logos }: LogoCarouselProps) {
               href={logo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-14 min-w-[120px] shrink-0 items-center justify-center"
+              className="flex h-20 min-w-[160px] shrink-0 items-center justify-center"
               aria-label={logo.name}
             >
               {content}
@@ -44,7 +44,7 @@ function LogoCarousel({ logos }: LogoCarouselProps) {
           ) : (
             <div
               key={`${logo.id}-${index}`}
-              className="flex h-14 min-w-[120px] shrink-0 items-center justify-center"
+              className="flex h-20 min-w-[160px] shrink-0 items-center justify-center"
             >
               {content}
             </div>
