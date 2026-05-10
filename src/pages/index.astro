@@ -25,7 +25,7 @@ const partners = (config.partners || []).map((partner, i) => ({
 
 <MainLayout>
   <!-- Hero -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden after:pointer-events-none after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[min(calc(100%_-_2.5rem),64rem)] after:-translate-x-1/2 after:bg-white/[0.10] after:content-['']">
+  <section class="module-divider relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden">
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img
         src={config.server.banner}
@@ -94,8 +94,8 @@ const partners = (config.partners || []).map((partner, i) => ({
   </section>
 
   <!-- Game Modes -->
-  <section id="gamemodes" class="relative z-10 px-5 py-24 after:pointer-events-none after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[min(calc(100%_-_2.5rem),64rem)] after:-translate-x-1/2 after:bg-white/[0.08] after:content-['']">
-    <div class="max-w-5xl mx-auto">
+  <section id="gamemodes" class="module-divider relative z-10 px-5 py-24">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">GAME MODES</p>
         <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.gamemodes.title')}</h2>
@@ -114,8 +114,8 @@ const partners = (config.partners || []).map((partner, i) => ({
   </section>
 
   <!-- Partners -->
-  <section class="relative z-10 px-5 py-24 before:pointer-events-none before:absolute before:top-0 before:left-1/2 before:h-px before:w-[min(calc(100%_-_2.5rem),64rem)] before:-translate-x-1/2 before:bg-white/[0.08] before:content-['']">
-    <div class="max-w-5xl mx-auto">
+  <section class="module-divider-top relative z-10 px-5 py-24">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">PARTNERS</p>
         <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.partners.title')}</h2>
