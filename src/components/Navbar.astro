@@ -80,25 +80,22 @@ const currentPath = Astro.url.pathname;
     </div>
     
     <!-- Right group -->
-    <div class="flex items-center gap-2 h-full">
-      <!-- Divider -->
-      <div class="w-px self-stretch bg-white/10 hidden md:block"></div>
-      
+    <div class="flex items-center gap-0 h-full">
       <!-- Language -->
-      <div class="relative group/lang h-full flex items-center" id="lang-menu">
+      <div class="relative group/lang h-full min-w-[180px] border-x border-white/10 flex items-center" id="lang-menu">
         <button
           type="button"
           id="lang-trigger"
           aria-haspopup="true"
           aria-expanded="false"
-          class="flex items-center gap-2 h-full px-2.5 text-white hover:bg-white/[0.04] transition-all"
+          class="flex items-center justify-center gap-2 h-full w-full px-4 text-white hover:bg-white/[0.04] transition-all"
         >
           <Languages class="w-3.5 h-3.5 text-white shrink-0" stroke-width={2} aria-hidden="true" />
           <span class="font-pixel text-xs text-white hidden sm:inline">{localeNames[locale] || locale}</span>
           <ChevronDown class="w-3 h-3 text-white shrink-0" stroke-width={2} aria-hidden="true" />
         </button>
         
-        <div id="lang-dropdown" class="absolute right-0 top-full w-40 bg-white/[0.03] backdrop-blur-2xl border border-white/[0.06] border-t-0 opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-200 overflow-hidden z-50">
+        <div id="lang-dropdown" class="absolute left-0 right-0 top-full w-full bg-white/[0.03] backdrop-blur-2xl border-x border-b border-white/[0.10] border-t border-t-white/[0.10] opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-200 overflow-hidden z-50">
           {availableLocales.map(lang => {
             const switchUrl = new URL(Astro.url);
             switchUrl.searchParams.set('lang', lang);
