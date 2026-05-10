@@ -25,7 +25,7 @@ const partners = (config.partners || []).map((partner, i) => ({
 
 <MainLayout>
   <!-- Hero -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden">
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[min(calc(100%-2.5rem),64rem)] after:-translate-x-1/2 after:bg-white/[0.10] after:content-['']"
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img
         src={config.server.banner}
@@ -94,7 +94,7 @@ const partners = (config.partners || []).map((partner, i) => ({
   </section>
 
   <!-- Game Modes -->
-  <section id="gamemodes" class="relative z-10 px-5 py-24">
+  <section id="gamemodes" class="relative z-10 px-5 py-24 after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[min(calc(100%-2.5rem),64rem)] after:-translate-x-1/2 after:bg-white/[0.08] after:content-['']">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">GAME MODES</p>
@@ -114,7 +114,7 @@ const partners = (config.partners || []).map((partner, i) => ({
   </section>
 
   <!-- Partners -->
-  <section class="relative z-10 px-5 py-24 border-t border-white/[0.04]">
+  <section class="relative z-10 px-5 py-24">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">PARTNERS</p>
