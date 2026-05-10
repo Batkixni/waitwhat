@@ -61,7 +61,8 @@ const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.orig
 <body class={`bg-black text-white min-h-screen flex flex-col antialiased locale-${locale}`}>
   <div class="fixed inset-0 bg-gradient-radial pointer-events-none z-0"></div>
   <div class="fixed inset-0 pointer-events-none z-0">
-    <div class="absolute inset-y-0 left-1/2 w-[min(calc(100%-2.5rem),64rem)] -translate-x-1/2 border-x border-white/[0.10]"></div>
+    <div class="absolute inset-y-0 left-1/2 w-[min(100%,64rem)] -translate-x-1/2 border-x border-white/[0.10]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_calc(50%-32rem),rgba(255,255,255,0.055)_calc(50%-32rem),rgba(255,255,255,0.055)_calc(50%-31.95rem),transparent_calc(50%-31.95rem),transparent_calc(50%+31.95rem),rgba(255,255,255,0.055)_calc(50%+31.95rem),rgba(255,255,255,0.055)_calc(50%+32rem),transparent_calc(50%+32rem)),linear-gradient(to_bottom,transparent_calc(100vh+6rem),rgba(255,255,255,0.10)_calc(100vh+6rem),rgba(255,255,255,0.10)_calc(100vh+6rem+1px),transparent_calc(100vh+6rem+1px),transparent_calc(100vh+calc(6rem+var(--section-step))),rgba(255,255,255,0.07)_calc(100vh+calc(6rem+var(--section-step))),rgba(255,255,255,0.07)_calc(100vh+calc(6rem+var(--section-step))+1px),transparent_calc(100vh+calc(6rem+var(--section-step))+1px))] [--section-step:40rem]"></div>
   </div>
   
   <Navbar locale={locale} localeData={localeData} />
