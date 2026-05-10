@@ -69,13 +69,33 @@
   ],
   "partners": [
     {
+      "name": "BLAST",
+      "logo": "/images/partner/BLAST_darkmode.png",
+      "url": "https://blast.tv"
+    },
+    {
+      "name": "ESL",
+      "logo": "/images/partner/ESL_2019_darkmode.png",
+      "url": "https://esl.com"
+    },
+    {
+      "name": "StarLadder",
+      "logo": "/images/partner/StarLadder_darkmode.png",
+      "url": "https://starladder.com"
+    },
+    {
       "name": "Partner Server 1",
-      "logo": "/images/partner1.png",
+      "logo": "/images/partner/partner1.png",
       "url": "https://example.com"
     },
     {
       "name": "Partner Server 2",
-      "logo": "/images/partner2.png",
+      "logo": "/images/partner/partner2.png",
+      "url": "https://example.com"
+    },
+    {
+      "name": "Partner Server 3",
+      "logo": "/images/partner/partner3.png",
       "url": "https://example.com"
     }
   ],

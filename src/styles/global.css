@@ -123,6 +123,15 @@ body.locale-zh-tw {
   100% { background-position: 200% 0; }
 }
 
+@keyframes partner-marquee {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-partner-marquee {
+  animation: partner-marquee 24s linear infinite;
+}
+
 /* Keep the existing BorderBeam/Cult UI motion, only restrict server-status colors. */
 .status-beam-yellow-green::after {
   background:

@@ -8,28 +8,18 @@ import { GradientBars } from '@components/gradient-bars';
 import { Mouse } from '@lucide/astro';
 import { loadLocale, detectLocale, t } from '@utils/i18n';
 import config from '@utils/config';
-import fs from 'node:fs';
-import path from 'node:path';
+
 
 const { cookies, request } = Astro;
 const locale = detectLocale(cookies, request.headers, Astro.url);
 const localeData = await loadLocale(locale);
 
 const gamemodes = config.gamemodes;
-
-const partnerDir = path.join(Astro.locals?.runtime?.cwd || process.cwd(), 'public', 'images', 'partner');
-const fallbackPartnerDir = path.join(Astro.locals?.runtime?.cwd || process.cwd(), 'public', 'images');
-
-const partnerFiles = fs.existsSync(partnerDir)
-  ? fs.readdirSync(partnerDir).filter(file => /\.(png|jpe?g|webp|svg|gif)$/i.test(file)).sort()
-  : fs.existsSync(fallbackPartnerDir)
-    ? fs.readdirSync(fallbackPartnerDir).filter(file => /^partner\d+\.(png|jpe?g|webp|svg|gif)$/i.test(file)).sort()
-    : [];
-
-const partners = partnerFiles.map((file, i) => ({
+const partners = (config.partners || []).map((partner, i) => ({
   id: i,
-  name: file.replace(/\.[^.]+$/, ''),
-  img: fs.existsSync(partnerDir) ? `/images/partner/${file}` : `/images/${file}`
+  name: partner.name,
+  img: partner.logo,
+  url: partner.url,
 }));
 ---
 
