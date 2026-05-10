@@ -1,7 +1,7 @@
 {
   "server": {
     "name": "WaitWhat",
-    "ip": "play.pixelcraft.net",
+    "ip": "waitwhat.network",
     "port": 25565,
     "banner": "/images/banner.png",
     "description": "The ultimate Minecraft minigame experience!",

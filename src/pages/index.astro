@@ -88,19 +88,18 @@ const partners = partnerFiles.map((file, i) => ({
       </p>
       
       <!-- Server Status -->
-      <div class="mb-10">
+      <div class="mb-12">
         <ServerStatus localeData={localeData} />
       </div>
       
       <!-- CTA -->
-      <div class="flex flex-col items-center gap-3">
-        <a href="#gamemodes" class="group flex flex-col items-center gap-2 font-pixel text-xs text-white/70 hover:text-white transition-colors">
-          <span class="flex h-12 w-8 items-center justify-center rounded-full border border-white/35 bg-white/[0.03] group-hover:border-white/70 group-hover:bg-white/[0.08] transition-all">
-            <Mouse class="w-4 h-4 text-white" stroke-width={2} aria-hidden="true" />
-          </span>
-          <span>{t(localeData, 'home.cta')}</span>
-        </a>
-      </div>
+      <a
+        href="#gamemodes"
+        class="group inline-flex text-white/75 transition-all hover:-translate-y-0.5 hover:text-white"
+        aria-label={t(localeData, 'home.cta')}
+      >
+        <Mouse class="w-8 h-8 sm:w-9 sm:h-9 text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.28)]" stroke-width={1.8} aria-hidden="true" />
+      </a>
     </div>
   </section>
 

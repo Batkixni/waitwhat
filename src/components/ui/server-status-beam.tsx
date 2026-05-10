@@ -14,13 +14,13 @@ interface ServerStatusBeamProps {
 function ServerStatusBeam({
   serverIp,
   offlineLabel,
-  onlineLabel,
   playersLabel,
   initialOffline = true,
 }: ServerStatusBeamProps) {
   const [copied, setCopied] = useState(false)
   const [online, setOnline] = useState(!initialOffline)
-  const [playerText, setPlayerText] = useState("")
+  const [playerCount, setPlayerCount] = useState<number | null>(null)
+  const [version, setVersion] = useState("")
 
   useEffect(() => {
     let mounted = true
@@ -33,15 +33,18 @@ function ServerStatusBeam({
 
         if (data.online) {
           setOnline(true)
-          setPlayerText(`${data.players?.online || 0} / ${data.players?.max || 0} ${playersLabel}`)
+          setPlayerCount(data.players?.online ?? 0)
+          setVersion(data.version || "")
         } else {
           setOnline(false)
-          setPlayerText("")
+          setPlayerCount(null)
+          setVersion("")
         }
       } catch {
         if (!mounted) return
         setOnline(false)
-        setPlayerText("")
+        setPlayerCount(null)
+        setVersion("")
       }
     }
 
@@ -51,7 +54,7 @@ function ServerStatusBeam({
       mounted = false
       window.clearInterval(timer)
     }
-  }, [playersLabel])
+  }, [])
 
   const copy = async () => {
     try {
@@ -63,7 +66,10 @@ function ServerStatusBeam({
     }
   }
 
-  const statusColor = online ? "#22C55E" : "#ef4444"
+  const displayIp = serverIp.replace(/^play\./, "")
+  const statusText = online
+    ? `${playerCount ?? 0} ${playersLabel}${version ? ` (${version})` : ""}`
+    : offlineLabel
 
   return (
     <BorderBeamButton
@@ -72,46 +78,43 @@ function ServerStatusBeam({
       aria-label="Copy server IP"
       variant="outline"
       theme="dark"
-      colorVariant={online ? "colorful" : "sunset"}
+      staticColors={["#F7EE13", "#FFE85A", "#F7EE13"]}
       beamSize="md"
-      duration={6}
-      strength={0.9}
-      brightness={1.1}
-      saturation={1.05}
-      borderRadius={4}
-      borderBeamClassName="w-full rounded-sm"
-      className="group inline-flex h-auto w-full min-w-0 sm:min-w-[320px] items-center justify-between gap-3 rounded-sm border-white/[0.08] bg-black/55 px-4 py-3 text-white shadow-none hover:bg-black/70 hover:text-white dark:border-white/[0.08] dark:bg-black/55 dark:text-white dark:hover:bg-black/70 dark:hover:text-white"
+      duration={5}
+      strength={0.95}
+      brightness={1.25}
+      saturation={1.1}
+      borderRadius={6}
+      borderBeamClassName="w-full rounded-md"
+      className="group inline-flex h-auto min-w-[300px] max-w-full items-center gap-3 rounded-md border-white/[0.08] bg-black/45 px-4 py-3 text-left text-white shadow-[0_14px_42px_rgba(0,0,0,0.38)] backdrop-blur-md transition-all hover:border-[#F7EE13]/35 hover:bg-black/60 hover:text-white dark:border-white/[0.08] dark:bg-black/45 dark:text-white dark:hover:bg-black/60 sm:min-w-[360px]"
     >
-      <div className="flex items-center gap-3">
-        <div className="relative shrink-0">
-          <div className="h-2 w-2 rounded-full transition-colors duration-500" style={{ backgroundColor: statusColor }} />
-          <div className="absolute inset-0 h-2 w-2 animate-ping rounded-full opacity-20" style={{ backgroundColor: statusColor }} />
-        </div>
+      <span className="relative flex h-3 w-3 shrink-0 items-center justify-center">
+        {online ? (
+          <>
+            <span className="absolute h-3 w-3 animate-ping rounded-full bg-[#22C55E]/35" />
+            <span className="absolute h-5 w-5 rounded-full bg-[#22C55E]/35 blur-md" />
+          </>
+        ) : null}
+        <span className={`relative h-2.5 w-2.5 rounded-full ${online ? "bg-[#22C55E] shadow-[0_0_12px_rgba(34,197,94,0.95)]" : "bg-red-500"}`} />
+      </span>
 
-        <div className="flex flex-col items-start text-left">
-          <span className="font-pixel text-[10px] transition-colors duration-500" style={{ color: online ? 'rgba(34,197,94,.75)' : 'rgba(248,113,113,.72)' }}>
-            {online ? onlineLabel : offlineLabel}
-          </span>
-          {playerText ? (
-            <span className="font-pixel text-[10px] text-white/50">{playerText}</span>
-          ) : null}
-        </div>
-      </div>
+      <span className="min-w-0 flex-1 font-pixel text-sm leading-none tracking-wide text-white/90 sm:text-base">
+        <span className="text-white">{displayIp}</span>
+        <span className="text-white/85"> - </span>
+        <span className={online ? "text-white" : "text-white/65"}>{statusText}</span>
+      </span>
 
-      <div className="h-6 w-px bg-white/8" />
-
-      <div className="flex items-center gap-2">
-        <span className="font-pixel text-xs tracking-wider text-white/75">{serverIp}</span>
+      <span className="shrink-0 text-white/45 transition-colors group-hover:text-white/80">
         {copied ? (
-          <svg className="h-3.5 w-3.5 shrink-0 text-[#F7EE13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-4 w-4 text-[#F7EE13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
           </svg>
         ) : (
-          <svg className="h-3.5 w-3.5 shrink-0 text-white/30 transition-colors group-hover:text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
         )}
-      </div>
+      </span>
     </BorderBeamButton>
   )
 }

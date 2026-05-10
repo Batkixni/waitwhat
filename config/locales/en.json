@@ -19,8 +19,8 @@
     "description": "The ultimate Minecraft minigame server experience. Join thousands of players in epic battles!",
     "serverStatus": {
       "online": "Online",
-      "offline": "Offline",
-      "players": "Players",
+      "offline": "Server maintenance",
+      "players": "players online",
       "copyIp": "Copy IP",
       "copied": "Copied!"
     },

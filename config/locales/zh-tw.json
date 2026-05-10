@@ -19,8 +19,8 @@
     "description": "最棒的 Minecraft 小遊戲伺服器體驗。加入數千名玩家一起戰鬥！",
     "serverStatus": {
       "online": "在線",
-      "offline": "離線",
-      "players": "玩家",
+      "offline": "伺服器維護中",
+      "players": "人在線",
       "copyIp": "複製 IP",
       "copied": "已複製！"
     },
