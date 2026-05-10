@@ -22,12 +22,12 @@ const defaultCurrency = shop.currency.default;
       <!-- Header -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 mb-12">
         <div>
-          <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-2">STORE</p>
-          <h1 class="font-pixel text-2xl sm:text-3xl text-white/90 mb-2">{t(localeData, 'shop.title')}</h1>
-          <p class="font-pixel text-xs text-white/30">{t(localeData, 'shop.description')}</p>
+          <p class="reveal font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-2" style="--delay: 0ms">STORE</p>
+          <h1 class="reveal font-pixel text-2xl sm:text-3xl text-white/90 mb-2" style="--delay: 60ms">{t(localeData, 'shop.title')}</h1>
+          <p class="reveal font-pixel text-xs text-white/30" style="--delay: 120ms">{t(localeData, 'shop.description')}</p>
         </div>
         
-        <div class="flex items-center gap-2">
+        <div class="reveal flex items-center gap-2" style="--delay: 180ms">
           <!-- Currency -->
           <div class="relative group/curr">
             <button class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
@@ -59,14 +59,14 @@ const defaultCurrency = shop.currency.default;
       </div>
       
       {!shop.enabled ? (
-        <div class="flex flex-col items-center justify-center py-24">
+        <div class="reveal flex flex-col items-center justify-center py-24" style="--delay: 240ms">
           <div class="w-16 h-16 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center mb-5">
             <svg class="w-7 h-7 text-white/10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
           </div>
           <p class="font-pixel text-sm text-white/30">{t(localeData, 'shop.disabled')}</p>
         </div>
       ) : (
-        <div class="card p-10 text-center">
+        <div class="reveal card p-10 text-center" style="--delay: 240ms">
           <div class="w-14 h-14 rounded-2xl bg-[#F7EE13]/5 border border-[#F7EE13]/10 flex items-center justify-center mx-auto mb-5 text-xl">
             🛒
           </div>

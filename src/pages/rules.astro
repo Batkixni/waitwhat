@@ -20,9 +20,9 @@ const lastUpdated = config.rules.lastUpdated;
 
       <!-- Header -->
       <div class="text-center mb-16">
-        <p class="font-pixel text-xs text-[#F7EE13]/55 tracking-[0.18em] uppercase mb-4">RULES</p>
-        <h1 class="font-pixel text-3xl sm:text-4xl lg:text-5xl text-white/95 mb-5">{t(localeData, 'rules.title')}</h1>
-        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm bg-white/[0.025] border border-white/[0.07]">
+        <p class="reveal font-pixel text-xs text-[#F7EE13]/55 tracking-[0.18em] uppercase mb-4" style="--delay: 0ms">RULES</p>
+        <h1 class="reveal font-pixel text-3xl sm:text-4xl lg:text-5xl text-white/95 mb-5" style="--delay: 80ms">{t(localeData, 'rules.title')}</h1>
+        <div class="reveal inline-flex items-center gap-2.5 px-4 py-2 rounded-sm bg-white/[0.025] border border-white/[0.07]" style="--delay: 160ms">
           <svg class="w-3.5 h-3.5 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
@@ -35,7 +35,7 @@ const lastUpdated = config.rules.lastUpdated;
         {rules.map((section: any, index: number) => (
           <div class="module-divider-top relative">
             <!-- Section header -->
-            <div class="flex items-center gap-4 py-6">
+            <div class="reveal flex items-center gap-4 py-6" style={`--delay: ${index * 100}ms`}>
               <div class="w-9 h-9 rounded-sm bg-[#F7EE13]/7 border border-[#F7EE13]/15 flex items-center justify-center shrink-0">
                 <span class="font-pixel text-xs text-[#F7EE13]/75">{index + 1}</span>
               </div>
@@ -45,7 +45,7 @@ const lastUpdated = config.rules.lastUpdated;
             <!-- Rules list -->
             <ul class="pb-10">
               {section.rules.map((rule: string, i: number) => (
-                <li class="flex items-start gap-4 py-4 border-t border-white/[0.04]">
+                <li class="reveal flex items-start gap-4 py-4 border-t border-white/[0.04]" style={`--delay: ${index * 100 + (i + 1) * 60}ms`}>
                   <span class="flex-shrink-0 w-6 h-6 rounded-sm bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mt-0.5">
                     <span class="font-pixel text-[10px] text-white/30">{i + 1}</span>
                   </span>
@@ -59,7 +59,7 @@ const lastUpdated = config.rules.lastUpdated;
 
       {rules.length === 0 && (
         <div class="text-center py-20">
-          <div class="w-14 h-14 rounded-sm bg-white/[0.02] border border-white/[0.06] flex items-center justify-center mx-auto mb-4">
+          <div class="reveal w-14 h-14 rounded-sm bg-white/[0.02] border border-white/[0.06] flex items-center justify-center mx-auto mb-4" style="--delay: 0ms">
             <svg class="w-6 h-6 text-white/8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
           <p class="font-pixel text-xs text-white/25">No rules configured.</p>

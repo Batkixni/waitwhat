@@ -57,12 +57,12 @@ const partners = (config.partners || []).map((partner, i) => ({
     <div class="relative z-20 flex flex-col items-center text-center max-w-3xl mx-auto">
       
       <!-- Subtitle -->
-      <p class="font-pixel text-[11px] text-[#F7EE13]/70 tracking-[0.2em] uppercase mb-6">
+      <p class="reveal font-pixel text-[11px] text-[#F7EE13]/70 tracking-[0.2em] uppercase mb-6" style="--delay: 0ms">
         {t(localeData, 'home.subtitle')}
       </p>
-      
+
       <!-- Title -->
-      <div class="mb-6 px-4">
+      <div class="reveal mb-6 px-4" style="--delay: 80ms">
         <img
           src="/images/branding/banner-fusion-pixel-8px.png"
           alt={config.server.name}
@@ -72,19 +72,20 @@ const partners = (config.partners || []).map((partner, i) => ({
       </div>
       
       <!-- Description -->
-      <p class="font-pixel text-xs sm:text-sm text-white/40 max-w-lg mx-auto leading-relaxed mb-10">
+      <p class="reveal font-pixel text-xs sm:text-sm text-white/40 max-w-lg mx-auto leading-relaxed mb-10" style="--delay: 160ms">
         {t(localeData, 'home.description')}
       </p>
       
       <!-- Server Status -->
-      <div class="mb-12">
+      <div class="reveal mb-12" style="--delay: 240ms">
         <ServerStatus localeData={localeData} />
       </div>
       
       <!-- CTA -->
       <a
         href="#gamemodes"
-        class="group inline-flex animate-float flex-col items-center gap-2 text-white/75 transition-colors hover:text-white"
+        class="reveal group inline-flex animate-float flex-col items-center gap-2 text-white/75 transition-colors hover:text-white"
+        style="--delay: 320ms"
         aria-label={t(localeData, 'home.cta')}
       >
         <Mouse class="w-8 h-8 sm:w-9 sm:h-9 text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.28)]" stroke-width={1.8} aria-hidden="true" />
@@ -97,19 +98,21 @@ const partners = (config.partners || []).map((partner, i) => ({
   <section id="gamemodes" class="module-divider relative z-10 px-5 py-24">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">GAME MODES</p>
-        <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.gamemodes.title')}</h2>
+        <p class="reveal font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3" style="--delay: 0ms">GAME MODES</p>
+        <h2 class="reveal font-pixel text-2xl sm:text-3xl text-white/90" style="--delay: 60ms">{t(localeData, 'home.gamemodes.title')}</h2>
       </div>
+      <div class="reveal" style="--delay: 120ms">
       
-      <GameModesExpandable
-        client:load
-        modes={gamemodes}
-        comingSoonLabel={t(localeData, 'home.gamemodes.comingSoon')}
-        modeLabel={t(localeData, 'home.gamemodes.modeLabel')}
-        statusLabel={t(localeData, 'home.gamemodes.statusLabel')}
-        focusLabel={t(localeData, 'home.gamemodes.focusLabel')}
-        focusValue={t(localeData, 'home.gamemodes.focusValue')}
-      />
+        <GameModesExpandable
+          client:load
+          modes={gamemodes}
+          comingSoonLabel={t(localeData, 'home.gamemodes.comingSoon')}
+          modeLabel={t(localeData, 'home.gamemodes.modeLabel')}
+          statusLabel={t(localeData, 'home.gamemodes.statusLabel')}
+          focusLabel={t(localeData, 'home.gamemodes.focusLabel')}
+          focusValue={t(localeData, 'home.gamemodes.focusValue')}
+        />
+      </div>
     </div>
   </section>
 
@@ -117,15 +120,17 @@ const partners = (config.partners || []).map((partner, i) => ({
   <section class="module-divider-top relative z-10 px-5 py-24">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <p class="font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3">PARTNERS</p>
-        <h2 class="font-pixel text-2xl sm:text-3xl text-white/90">{t(localeData, 'home.partners.title')}</h2>
+        <p class="reveal font-pixel text-[10px] text-[#F7EE13]/50 tracking-[0.15em] uppercase mb-3" style="--delay: 0ms">PARTNERS</p>
+        <h2 class="reveal font-pixel text-2xl sm:text-3xl text-white/90" style="--delay: 60ms">{t(localeData, 'home.partners.title')}</h2>
       </div>
+      <div class="reveal" style="--delay: 120ms">
       
-      <LogoCarousel 
-        client:load
-        logos={partners}
-        columnCount={3}
-      />
+        <LogoCarousel
+          client:load
+          logos={partners}
+          columnCount={3}
+        />
+      </div>
     </div>
   </section>
 </MainLayout>
