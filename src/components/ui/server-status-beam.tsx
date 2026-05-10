@@ -78,14 +78,14 @@ function ServerStatusBeam({
       aria-label="Copy server IP"
       variant="outline"
       theme="dark"
-      staticColors={["#F7EE13", "#FFE85A", "#F7EE13"]}
+      staticColors={true}
       beamSize="md"
       duration={5}
       strength={0.95}
       brightness={1.25}
       saturation={1.1}
       borderRadius={6}
-      borderBeamClassName="w-full rounded-md"
+      borderBeamClassName="status-beam-yellow-green w-full rounded-md"
       className="group inline-flex h-auto min-w-[300px] max-w-full items-center gap-3 rounded-md border-white/[0.08] bg-black/45 px-4 py-3 text-left text-white shadow-[0_14px_42px_rgba(0,0,0,0.38)] backdrop-blur-md transition-all hover:border-[#F7EE13]/35 hover:bg-black/60 hover:text-white dark:border-white/[0.08] dark:bg-black/45 dark:text-white dark:hover:bg-black/60 sm:min-w-[360px]"
     >
       <span className="relative flex h-3 w-3 shrink-0 items-center justify-center">
