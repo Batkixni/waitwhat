@@ -25,7 +25,7 @@ const partners = (config.partners || []).map((partner, i) => ({
 
 <MainLayout>
   <!-- Hero -->
-  <section class="module-divider relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden">
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-28 pb-20 overflow-hidden after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-white/[0.12] after:content-['']">
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img
         src={config.server.banner}
