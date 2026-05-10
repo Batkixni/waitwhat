@@ -5,6 +5,7 @@ import MinecraftText from '@components/MinecraftText.astro';
 import LogoCarousel from '@components/ui/logo-carousel';
 import GameModesExpandable from '@components/ui/game-modes-expandable';
 import { GradientBars } from '@components/gradient-bars';
+import { Mouse } from '@lucide/astro';
 import { loadLocale, detectLocale, t } from '@utils/i18n';
 import config from '@utils/config';
 import fs from 'node:fs';
@@ -72,9 +73,14 @@ const partners = partnerFiles.map((file, i) => ({
       </p>
       
       <!-- Title -->
-      <h1 class="font-pixel text-3xl sm:text-5xl md:text-6xl text-gradient mb-6 leading-tight">
-        <MinecraftText text={`§f${config.server.name}`} />
-      </h1>
+      <div class="mb-6 px-4">
+        <img
+          src="/images/branding/banner-fusion-pixel-8px.png"
+          alt={config.server.name}
+          class="w-full max-w-[760px] h-auto object-contain mx-auto"
+          onerror="this.style.display='none'"
+        />
+      </div>
       
       <!-- Description -->
       <p class="font-pixel text-xs sm:text-sm text-white/40 max-w-lg mx-auto leading-relaxed mb-10">
@@ -88,11 +94,11 @@ const partners = partnerFiles.map((file, i) => ({
       
       <!-- CTA -->
       <div class="flex flex-col items-center gap-3">
-        <a href="#gamemodes" class="btn-primary">
-          {t(localeData, 'home.cta')}
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        <a href="#gamemodes" class="group flex flex-col items-center gap-2 font-pixel text-xs text-white/70 hover:text-white transition-colors">
+          <span class="flex h-12 w-8 items-center justify-center rounded-full border border-white/35 bg-white/[0.03] group-hover:border-white/70 group-hover:bg-white/[0.08] transition-all">
+            <Mouse class="w-4 h-4 text-white" stroke-width={2} aria-hidden="true" />
+          </span>
+          <span>{t(localeData, 'home.cta')}</span>
         </a>
       </div>
     </div>

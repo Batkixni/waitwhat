@@ -24,7 +24,7 @@ const {
   image = localeData.meta?.image || config.server.banner
 } = Astro.props;
 
-const fullTitle = title.includes(config.server.name) ? title : `${title} | ${config.server.name}`;
+const fullTitle = title;
 const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.origin).toString();
 ---
 

@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "WaitWhat - Minecraft Minigame Server",
-    "description": "Join WaitWhat for the best Minecraft minigame experience! Bed Wars, Sky Wars, Duels and more!",
+    "title": "Minecraft Minigame Server",
+    "description": "Join the best Minecraft minigame experience! Bed Wars, Sky Wars, Duels and more!",
     "color": "#00AA00",
     "image": "/images/banner.png"
   },
   "nav": {
     "home": "Home",
-    "shop": "Shop",
+    "shop": "Store",
     "rules": "Rules",
     "about": "About",
     "language": "Language",
@@ -15,7 +15,7 @@
   },
   "home": {
     "subtitle": "Welcome to",
-    "title": "WaitWhat",
+    "title": "",
     "description": "The ultimate Minecraft minigame server experience. Join thousands of players in epic battles!",
     "serverStatus": {
       "online": "Online",
@@ -39,10 +39,10 @@
   },
   "shop": {
     "meta": {
-      "title": "Shop - WaitWhat",
-      "description": "Support WaitWhat by purchasing ranks, cosmetics, and more!"
+      "title": "Store",
+      "description": "Support the server by purchasing ranks, cosmetics, and more!"
     },
-    "title": "Server Shop",
+    "title": "Server Store",
     "description": "Support us and get awesome perks!",
     "currency": "Currency",
     "cart": "Cart",
@@ -54,8 +54,8 @@
   },
   "rules": {
     "meta": {
-      "title": "Rules - WaitWhat",
-      "description": "Rules and guidelines for all WaitWhat players."
+      "title": "Rules",
+      "description": "Rules and guidelines for all players."
     },
     "title": "Server Rules",
     "lastUpdated": "Last Updated",
@@ -91,11 +91,11 @@
   },
   "about": {
     "meta": {
-      "title": "About - WaitWhat",
-      "description": "Learn more about WaitWhat, our team, and our journey."
+      "title": "About",
+      "description": "Learn more about our team and our journey."
     },
     "title": "About Us",
-    "description": "WaitWhat was founded with a simple goal: to create the best Minecraft minigame experience for players around the world. Our dedicated team works tirelessly to bring you new features, game modes, and events.",
+    "description": "Founded with a simple goal: to create the best Minecraft minigame experience for players around the world. Our dedicated team works tirelessly to bring you new features, game modes, and events.",
     "milestones": {
       "title": "Our Journey"
     },
@@ -126,7 +126,7 @@
         "home": "Home",
         "about": "About",
         "rules": "Rules",
-        "shop": "Shop"
+        "shop": "Store"
       }
     },
     "resources": {
@@ -146,7 +146,7 @@
         "tiktok": "TikTok"
       }
     },
-    "copyright": "© {year} WaitWhat. All rights reserved.",
+    "copyright": "© {year}. All rights reserved.",
     "disclaimer": "Not affiliated with Mojang Studios or Microsoft."
   }
 }
