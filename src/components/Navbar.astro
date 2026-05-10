@@ -21,6 +21,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white/[0.02] backdrop-blur-2xl transition-transform duration-300 ease-out">
+  <div class="pointer-events-none absolute inset-y-0 left-1/2 w-[min(calc(100%_-_2.5rem),72rem)] -translate-x-1/2 border-x border-white/[0.10]"></div>
   <div class="relative mx-auto max-w-6xl px-5 h-14 flex items-center justify-between">
     
     <!-- Left group -->
@@ -45,7 +46,7 @@ const currentPath = Astro.url.pathname;
       </a>
       
       <!-- Divider -->
-      <div class="w-px h-5 bg-white/10 hidden md:block"></div>
+      <div class="w-px self-stretch bg-white/10 hidden md:block"></div>
       
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-0.5">
@@ -81,7 +82,7 @@ const currentPath = Astro.url.pathname;
     <!-- Right group -->
     <div class="flex items-center gap-2 h-full">
       <!-- Divider -->
-      <div class="w-px h-5 bg-white/10 hidden md:block"></div>
+      <div class="w-px self-stretch bg-white/10 hidden md:block"></div>
       
       <!-- Language -->
       <div class="relative group/lang h-full flex items-center" id="lang-menu">

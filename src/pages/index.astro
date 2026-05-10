@@ -35,7 +35,7 @@ const partners = (config.partners || []).map((partner, i) => ({
       />
       <div class="absolute inset-0 bg-black/38"></div>
       <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.18),rgba(0,0,0,0.62))]"></div>
-      <div class="absolute inset-x-0 bottom-0 h-[40vw] max-h-[460px] min-h-[240px] z-[1] pointer-events-none opacity-80 mix-blend-screen">
+      <div class="absolute inset-x-0 bottom-0 h-[40vw] max-h-[460px] min-h-[240px] z-[11] pointer-events-none opacity-80 mix-blend-screen">
         <GradientBars
           client:load
           colors={["rgba(247,238,19,0)", "rgba(247,238,19,0.44)", "rgba(23,171,136,0.20)", "rgba(0,0,0,0)"]}
@@ -45,7 +45,7 @@ const partners = (config.partners || []).map((partner, i) => ({
           animation="wave"
           duration={2.8}
           delayStep={0.04}
-          className="opacity-82 [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_74%,transparent)]"
+          className="opacity-82 [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_100%)]"
         />
       </div>
     </div>
