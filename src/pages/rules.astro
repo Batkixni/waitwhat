@@ -15,9 +15,9 @@ const lastUpdated = config.rules.lastUpdated;
   title={t(localeData, 'rules.meta.title')}
   description={t(localeData, 'rules.meta.description')}
 >
-  <section class="relative z-10 min-h-screen px-5 pt-32 pb-24">
-    <div class="max-w-6xl mx-auto">
-      
+  <section class="relative z-10 min-h-screen px-5 pt-28 pb-24">
+    <div class="max-w-4xl mx-auto">
+
       <!-- Header -->
       <div class="text-center mb-16">
         <p class="font-pixel text-xs text-[#F7EE13]/55 tracking-[0.18em] uppercase mb-4">RULES</p>
@@ -30,23 +30,26 @@ const lastUpdated = config.rules.lastUpdated;
         </div>
       </div>
 
-      <!-- Rules -->
-      <div class="grid gap-5 lg:grid-cols-2">
+      <!-- Rules - single column flow -->
+      <div class="flex flex-col">
         {rules.map((section: any, index: number) => (
-          <div class="card overflow-hidden bg-white/[0.025]">
-            <div class="px-6 sm:px-7 py-5 bg-white/[0.02] border-b border-white/[0.05] flex items-center gap-4">
-              <div class="w-10 h-10 rounded-sm bg-[#F7EE13]/7 border border-[#F7EE13]/15 flex items-center justify-center shrink-0">
+          <div class="module-divider-top relative">
+            <!-- Section header -->
+            <div class="flex items-center gap-4 py-6">
+              <div class="w-9 h-9 rounded-sm bg-[#F7EE13]/7 border border-[#F7EE13]/15 flex items-center justify-center shrink-0">
                 <span class="font-pixel text-xs text-[#F7EE13]/75">{index + 1}</span>
               </div>
-              <h2 class="font-pixel text-lg sm:text-xl text-white/85 leading-snug">{section.title}</h2>
+              <h2 class="font-pixel text-xl sm:text-2xl text-white/85">{section.title}</h2>
             </div>
-            <ul class="p-6 sm:p-7 space-y-4">
+
+            <!-- Rules list -->
+            <ul class="pb-10">
               {section.rules.map((rule: string, i: number) => (
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-sm bg-white/[0.04] border border-white/[0.05] flex items-center justify-center mt-0.5">
+                <li class="flex items-start gap-4 py-4 border-t border-white/[0.04]">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-sm bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mt-0.5">
                     <span class="font-pixel text-[10px] text-white/30">{i + 1}</span>
                   </span>
-                  <span class="font-pixel text-sm sm:text-[15px] text-white/58 leading-8">{rule}</span>
+                  <span class="font-pixel text-sm sm:text-[15px] text-white/55 leading-8">{rule}</span>
                 </li>
               ))}
             </ul>

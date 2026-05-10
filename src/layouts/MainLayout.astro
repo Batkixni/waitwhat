@@ -60,6 +60,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, Astro.url.orig
 </head>
 <body class={`bg-black text-white min-h-screen flex flex-col antialiased locale-${locale}`}>
   <div class="fixed inset-0 bg-gradient-radial pointer-events-none z-0"></div>
+  <div class="global-grid-bg" aria-hidden="true"></div>
   <div class="layout-guides" aria-hidden="true"></div>
   
   <Navbar locale={locale} localeData={localeData} />

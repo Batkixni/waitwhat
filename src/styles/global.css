@@ -202,7 +202,7 @@ body.locale-zh-tw {
 .layout-guides {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   --guide-width: min(calc(100% - 2.5rem), 69.5rem);
 }
@@ -215,8 +215,20 @@ body.locale-zh-tw {
   left: 50%;
   width: var(--guide-width);
   transform: translateX(-50%);
-  border-left: 1px solid rgba(255,255,255,0.10);
-  border-right: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    inset 1px 0 0 rgba(255,255,255,0.10),
+    inset -1px 0 0 rgba(255,255,255,0.10);
+}
+
+.global-grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 .module-line,

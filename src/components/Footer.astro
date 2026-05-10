@@ -26,36 +26,36 @@ const socialLinks = [
 ---
 
 <footer class="module-divider-top relative z-10 mt-24">
-  <div class="max-w-6xl mx-auto px-5 py-14">
-    <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
       <div class="max-w-xl">
-        <div class="flex items-center gap-4 mb-5">
-          <img
-            src="/images/logo.png"
-            alt={config.server.name}
-            class="h-14 w-auto object-contain"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-          />
-          <div class="w-14 h-14 rounded-sm bg-[#F7EE13] hidden items-center justify-center text-2xl text-black border border-[#F7EE13]/40">
-            ⚔
-          </div>
-          <div>
+        <div class="flex flex-col gap-2.5 mb-5 pl-6 border-l border-white/[0.10]">
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/logo.png"
+              alt={config.server.name}
+              class="h-11 w-auto object-contain"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <div class="w-11 h-11 rounded-sm bg-[#F7EE13] hidden items-center justify-center text-xl text-black border border-[#F7EE13]/40">
+              ⚔
+            </div>
             <img
               src="/images/branding/banner-fusion-pixel-8px.png"
               alt={config.server.name}
-              class="h-8 sm:h-10 w-auto object-contain"
+              class="h-7 sm:h-9 w-auto object-contain"
               onerror="this.style.display='none'"
             />
-            <div class="font-pixel text-sm text-[#F7EE13]/70 mt-2 tracking-wide">Minecraft Network</div>
           </div>
+          <div class="font-pixel text-sm text-[#F7EE13]/70 tracking-wide">Minecraft Network</div>
         </div>
 
-        <p class="font-pixel text-sm sm:text-base text-white/45 leading-8 max-w-lg">
+        <p class="font-pixel text-sm sm:text-base text-white/45 leading-8 max-w-lg pl-6">
           {t(localeData, 'footer.server.description')}
         </p>
       </div>
 
-      <div class="flex flex-col gap-8 lg:items-end">
+      <div class="flex flex-col gap-8 lg:items-end pr-6 border-r border-white/[0.10]">
         <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:justify-end">
           {primaryLinks.map(link => (
             <a href={link.href} class="font-pixel text-sm sm:text-base text-white/55 hover:text-[#F7EE13] transition-colors">
